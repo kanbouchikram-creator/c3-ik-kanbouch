@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nos Services — Studio Lumière</title>
+  <meta name="description" content="Découvrez les services de Studio Lumière : identité visuelle, stratégie de marque, design éditorial, web et motion design. Tarifs transparents et sur-mesure.">
+  <meta name="keywords" content="services design, tarifs design, identité visuelle prix, branding Paris">
+  <meta name="robots" content="index, follow">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://studiolumiere.fr/services.html">
+  <meta property="og:title" content="Nos Services & Tarifs — Studio Lumière">
+  <meta property="og:description" content="Services de design complets avec des tarifs transparents. Identité visuelle, web, motion et plus.">
+  <meta property="og:image" content="https://studiolumiere.fr/og-services.jpg">
+  <meta property="og:locale" content="fr_FR">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://studiolumiere.fr/services.html">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ── Service Detail Sections ── */
+    .service-section { border-bottom: 1px solid var(--cream-dark); padding: var(--section-pad) 0; }
+    .service-section:last-of-type { border-bottom: none; }
+    .service-section__header { display: grid; grid-template-columns: 1fr 1.6fr; gap: 5rem; align-items: start; }
+    .service-section__meta { position: sticky; top: 8rem; }
+    .service-section__num {
+      font-family: var(--font-display);
+      font-size: 5rem;
+      font-weight: 700;
+      color: var(--cream-dark);
+      line-height: 1;
+      margin-bottom: -.5rem;
+    }
+    .service-section__content picture img {
+      width: 100%;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+      margin-bottom: 2rem;
+    }
+
+    /* ── Details/Summary ── */
+    .faq { margin-top: 2rem; }
+    details {
+      border-bottom: 1px solid var(--cream-dark);
+      overflow: hidden;
+    }
+    details:first-of-type { border-top: 1px solid var(--cream-dark); }
+    summary {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.4rem 0;
+      cursor: pointer;
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--ink);
+      list-style: none;
+      user-select: none;
+      transition: color var(--transition);
+    }
+    summary::-webkit-details-marker { display: none; }
+    summary:hover { color: var(--gold); }
+    summary::after {
+      content: '+';
+      font-family: var(--font-ui);
+      font-size: 1.4rem;
+      font-weight: 300;
+      color: var(--gold);
+      flex-shrink: 0;
+      transition: transform var(--transition);
+    }
+    details[open] summary::after { transform: rotate(45deg); }
+    details[open] summary { color: var(--gold); }
+    .details-body {
+      padding: 0 0 1.5rem;
+      font-size: 1rem;
+      color: var(--ink-soft);
+      line-height: 1.8;
+      animation: fadeUp .3s ease both;
+    }
+    .details-body ul { margin-top: .8rem; padding-left: 1.2rem; }
+    .details-body li { position: relative; padding-left: .5rem; margin-bottom: .4rem; }
+    .details-body li::before { content: '—'; position: absolute; left: -1rem; color: var(--gold); }
+
+    /* ── Pricing Table ── */
+    .pricing { background: var(--ink); color: var(--cream); }
+    .pricing-table-wrap { overflow-x: auto; margin-top: 3rem; }
+    .pricing-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 1rem;
+    }
+    .pricing-table caption {
+      font-family: var(--font-ui);
+      font-size: .78rem;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: var(--gray-mid);
+      text-align: left;
+      padding-bottom: 1.5rem;
+    }
+    .pricing-table thead th {
+      padding: 1.2rem 1.5rem;
+      text-align: left;
+      font-family: var(--font-ui);
+      font-size: .78rem;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      font-weight: 500;
+      border-bottom: 1px solid rgba(255,255,255,.1);
+    }
+    .pricing-table thead th.highlight { background: var(--gold); color: var(--white); }
+    .pricing-table tbody tr {
+      border-bottom: 1px solid rgba(255,255,255,.06);
+      transition: background var(--transition);
+    }
+    .pricing-table tbody tr:hover { background: rgba(255,255,255,.04); }
+    .pricing-table td {
+      padding: 1.1rem 1.5rem;
+      font-family: var(--font-body);
+      vertical-align: middle;
+    }
+    .pricing-table td.highlight { background: rgba(184,150,62,.08); }
+    .pricing-table td.feature-name { font-weight: 400; color: var(--gray-light); }
+    .pricing-table td.price {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--gold-light);
+    }
+    .pricing-table .check { color: var(--gold); font-size: 1rem; }
+    .pricing-table .cross { color: rgba(255,255,255,.2); font-size: .9rem; }
+    .pricing-table .category-row td {
+      padding: 1.5rem 1.5rem .5rem;
+      font-family: var(--font-ui);
+      font-size: .72rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      background: rgba(184,150,62,.06);
+    }
+    .plan-header { font-family: var(--font-display); font-size: 1.2rem; }
+    .plan-subhead { font-family: var(--font-ui); font-size: .78rem; color: var(--gray-mid); display: block; margin-top: .2rem; }
+
+    @media (max-width: 1024px) {
+      .service-section__header { grid-template-columns: 1fr; gap: 2.5rem; }
+      .service-section__meta { position: static; }
+    }
+    @media (max-width: 768px) {
+      .pricing-table { font-size: .9rem; }
+      .pricing-table th, .pricing-table td { padding: .8rem 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── Navigation ── -->
+  <nav class="nav scrolled" id="mainNav" role="navigation" aria-label="Navigation principale">
+    <div class="container nav__inner">
+      <a href="index.html" class="nav__logo">Studio<span>.</span>Lumière</a>
+      <ul class="nav__links" id="navLinks">
+        <li><a href="index.html" class="nav__link">Accueil</a></li>
+        <li><a href="about.html" class="nav__link">À Propos</a></li>
+        <li><a href="services.html" class="nav__link active">Services</a></li>
+        <li><a href="gallery.html" class="nav__link">Galerie</a></li>
+        <li><a href="contact.html" class="nav__link">Contact</a></li>
+      </ul>
+      <a href="contact.html" class="nav__cta">Devis Gratuit</a>
+      <button class="nav__burger" id="navBurger" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <main>
+    <!-- ── Page Hero ── -->
+    <header class="page-hero">
+      <div class="container">
+        <p class="label">Ce que nous créons</p>
+        <div class="divider"></div>
+        <h1>Nos Services<br><em style="font-style:italic; color:var(--gold-light)">& Expertises</em></h1>
+        <p style="margin-top:1.5rem">Du positionnement stratégique à l'exécution créative, nous offrons une palette complète de services pour faire rayonner votre marque.</p>
+      </div>
+    </header>
+
+    <!-- ── Service 1 : Identité Visuelle ── -->
+    <section id="identite" class="service-section">
+      <div class="container">
+        <div class="service-section__header">
+          <div class="service-section__meta">
+            <div class="service-section__num">01</div>
+            <p class="label">Service</p>
+            <div class="divider"></div>
+            <h2>Identité Visuelle</h2>
+            <p>La signature unique qui différencie votre marque. Du logo au système visuel complet, nous créons une cohérence visuelle mémorable.</p>
+            <a href="contact.html" class="btn" style="margin-top:2rem"><span>Demander un Devis</span></a>
+          </div>
+          <div class="service-section__content">
+            <picture>
+              <source media="(min-width: 768px)"
+                      srcset="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&q=80 800w,
+                              https://images.unsplash.com/photo-1561070791-2526d30994b5?w=1100&q=80 1100w"
+                      sizes="(min-width: 1200px) 55vw, 90vw">
+              <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&q=80"
+                   alt="Création d'identité visuelle et charte graphique"
+                   width="800" height="450" loading="lazy">
+            </picture>
+
+            <div class="faq">
+              <details open>
+                <summary>Qu'inclut un projet d'identité visuelle ?</summary>
+                <div class="details-body">
+                  <p>Un projet complet d'identité visuelle couvre l'ensemble des éléments constitutifs de votre signature graphique :</p>
+                  <ul>
+                    <li>Création du logo (versions principale, secondaire, monochrome)</li>
+                    <li>Palette de couleurs avec codes Pantone, CMJN, RVB et HEX</li>
+                    <li>Sélection et hiérarchie typographique</li>
+                    <li>Iconographie et système d'illustration</li>
+                    <li>Charte graphique complète (guide d'utilisation)</li>
+                    <li>Applications sur supports essentiels (carte de visite, papeterie, réseaux sociaux)</li>
+                  </ul>
+                </div>
+              </details>
+              <details>
+                <summary>Combien de temps dure un projet d'identité ?</summary>
+                <div class="details-body">
+                  <p>La durée varie selon la complexité et les révisions. En moyenne :</p>
+                  <ul>
+                    <li>Identité Essentielle : 3 à 4 semaines</li>
+                    <li>Identité Complète : 6 à 8 semaines</li>
+                    <li>Refonte globale : 10 à 16 semaines</li>
+                  </ul>
+                  <p>Chaque étape est jalonnée et validée avec vous avant de passer à la suivante.</p>
+                </div>
+              </details>
+              <details>
+                <summary>Proposez-vous des retouches et révisions ?</summary>
+                <div class="details-body">
+                  <p>Oui, nos contrats incluent systématiquement deux tours de révisions majeures à chaque phase du projet. Des révisions additionnelles peuvent être ajoutées si nécessaire.</p>
+                </div>
+              </details>
+              <details>
+                <summary>Livrez-vous les fichiers sources ?</summary>
+                <div class="details-body">
+                  <p>Absolument. À la livraison finale, vous recevez tous les fichiers sources dans les formats Adobe Illustrator (AI), PDF vectoriel, PNG transparent et JPG haute résolution. Vous êtes propriétaire à 100% de votre identité.</p>
+                </div>
+              </details>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Service 2 : Stratégie ── -->
+    <section id="strategie" class="service-section" style="background: var(--cream-dark);">
+      <div class="container">
+        <div class="service-section__header">
+          <div class="service-section__meta">
+            <div class="service-section__num">02</div>
+            <p class="label">Service</p>
+            <div class="divider"></div>
+            <h2>Stratégie de Marque</h2>
+            <p>Le design le plus beau est inutile sans une stratégie solide. Nous définissons votre positionnement avant de toucher à un seul pixel.</p>
+            <a href="contact.html" class="btn" style="margin-top:2rem"><span>Demander un Devis</span></a>
+          </div>
+          <div class="service-section__content">
+            <picture>
+              <source media="(min-width: 768px)"
+                      srcset="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80 800w"
+                      sizes="(min-width: 1200px) 55vw, 90vw">
+              <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&q=80"
+                   alt="Atelier de stratégie de marque et brainstorming"
+                   width="800" height="450" loading="lazy">
+            </picture>
+
+            <div class="faq">
+              <details open>
+                <summary>En quoi consiste un audit de marque ?</summary>
+                <div class="details-body">
+                  <p>L'audit de marque est notre diagnostic initial. Il comprend : analyse de l'identité existante, étude concurrentielle, interviews des parties prenantes clés, cartographie des points de contact et analyse des audiences cibles. Nous livrons un rapport complet avec recommandations.</p>
+                </div>
+              </details>
+              <details>
+                <summary>Qu'est-ce qu'un brand book ?</summary>
+                <div class="details-body">
+                  <p>Le brand book (ou brand bible) est le document de référence exhaustif de votre marque. Il documente : votre raison d'être, vos valeurs, votre ton de voix, votre identité visuelle complète et toutes les règles d'usage pour garantir une cohérence parfaite sur tous les canaux.</p>
+                </div>
+              </details>
+              <details>
+                <summary>Travaillez-vous avec des marques en cours de création ?</summary>
+                <div class="details-body">
+                  <p>Oui, nous adorons accompagner les fondateurs dès le départ. Partir de zéro nous permet de construire une marque cohérente et ambitieuse sans héritage contraignant. C'est souvent nos projets les plus satisfaisants.</p>
+                </div>
+              </details>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Service 3 : Éditorial ── -->
+    <section id="editorial" class="service-section">
+      <div class="container">
+        <div class="service-section__header">
+          <div class="service-section__meta">
+            <div class="service-section__num">03</div>
+            <p class="label">Service</p>
+            <div class="divider"></div>
+            <h2>Design Éditorial</h2>
+            <p>Publications, rapports, catalogues et livres — nous concevons chaque page comme une expérience de lecture mémorable.</p>
+            <a href="contact.html" class="btn" style="margin-top:2rem"><span>Demander un Devis</span></a>
+          </div>
+          <div class="service-section__content">
+            <picture>
+              <source media="(min-width: 768px)"
+                      srcset="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=800&q=80 800w"
+                      sizes="(min-width: 1200px) 55vw, 90vw">
+              <img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=600&q=80"
+                   alt="Design éditorial livres et magazines"
+                   width="800" height="450" loading="lazy">
+            </picture>
+
+            <div class="faq">
+              <details open>
+                <summary>Quels types de publications créez-vous ?</summary>
+                <div class="details-body">
+                  <ul>
+                    <li>Rapports annuels et de développement durable</li>
+                    <li>Catalogues produits et lookbooks</li>
+                    <li>Magazines internes et externes</li>
+                    <li>Livres d'entreprise et monographies</li>
+                    <li>Brochures de présentation et dossiers de presse</li>
+                    <li>Publications académiques et institutionnelles</li>
+                  </ul>
+                </div>
+              </details>
+              <details>
+                <summary>Gérez-vous également l'impression ?</summary>
+                <div class="details-body">
+                  <p>Nous travaillons avec un réseau d'imprimeurs premium sélectionnés pour leur qualité. Nous gérons la préparation des fichiers, le suivi de la prépresse, les BAT et la livraison finale. Pour les projets luxe, nous proposons des finitions spéciales : dorure à chaud, gaufrage, vernis sélectif, papiers spéciaux.</p>
+                </div>
+              </details>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Pricing Table ── -->
+    <section id="tarifs" class="section pricing">
+      <div class="container">
+        <div class="section-header section-header--center">
+          <p class="label" style="color:var(--gold-light)">Tarifs</p>
+          <div class="divider divider--center"></div>
+          <h2 style="color:var(--cream)">Nos Formules</h2>
+          <p style="color:var(--gray-light); margin:0 auto">Des tarifs clairs et transparents. Tous les projets incluent un devis personnalisé gratuit.</p>
+        </div>
+
+        <div class="pricing-table-wrap">
+          <table class="pricing-table" aria-label="Tableau comparatif des formules de service">
+            <caption>Comparatif des formules Studio Lumière 2025 — Tarifs HT</caption>
+            <thead>
+              <tr>
+                <th scope="col" style="width:32%">Prestations incluses</th>
+                <th scope="col" style="text-align:center; width:17%">
+                  <span class="plan-header">Essentiel</span>
+                  <span class="plan-subhead">Startups & PME</span>
+                </th>
+                <th scope="col" class="highlight" style="text-align:center; width:17%">
+                  <span class="plan-header">Studio</span>
+                  <span class="plan-subhead" style="color:rgba(255,255,255,.7)">Notre recommandation</span>
+                </th>
+                <th scope="col" style="text-align:center; width:17%">
+                  <span class="plan-header">Prestige</span>
+                  <span class="plan-subhead">Marques d'exception</span>
+                </th>
+                <th scope="col" style="text-align:center; width:17%">
+                  <span class="plan-header">Sur Mesure</span>
+                  <span class="plan-subhead">Projets complexes</span>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Category: Identité -->
+              <tr class="category-row">
+                <td colspan="5">Identité Visuelle</td>
+              </tr>
+              <tr>
+                <td class="feature-name">Création de logo</td>
+                <td style="text-align:center"><span class="check">✓</span></td>
+                <td class="highlight" style="text-align:center"><span class="check">✓</span></td>
+                <td style="text-align:center"><span class="check">✓</span></td>
+                <td style="text-align:center"><span class="check">✓</span></td>
+              </tr>
+              <tr>
+                <td class="feature-name">Variantes du logo (couleur, N&amp;B, favicon)</td>
+                <td style="text-align:center"><span class="cross">—</span></td>
+                <td class="highlight" style="text-align:center"><span class="check">✓</span></td>
+                <td style="text-align:center"><span class="check">✓</span></td>
+                <td style="text-align:center"><span class="check">✓</span></td>
+              </tr>
+              <tr>
+                <td class="feature-name">Charte graphique complète</td>
+                <td style="text-align:center"><span class="cross">—</span></td>
+                <td class="highlight" style="text-align:center"><span class="check">✓</span></td>
+                <td style="text-align:center"><span class="check">✓</span></td>
+                <td style="text-align:center"><span class="check">✓</span></td>
+              </tr>
+              <tr>
+                <td class="feature-name">Brand book complet (100+ pages)</td>
+                <td style="text-align:center"><span class="cross">—</span></td>
+                <td class="highlight" style="text-align:center"><span class="cross">—</span></td>
+                <td style="text-align:center"><span class="check">✓</span></td>
+                <td style="text-align:center"><span class="check">✓</span></td>
+              </tr>
+
+              <!-- Category: Supports -->
+              <tr class="category-row">
+                <td colspan="5">Supports de Communication</td>
+              </tr>
+              <tr>
+                <td class="feature-name">Carte de visite & papeterie</td>
+                <td style="text-align:center">1 modèle</td>
+                <td class="highlight" style="text-align:center">Gamme complète</td>
+                <td style="text-align:center">Gamme complète</td>
+                <td style="text-align:center">Illimité</td>
+              </tr>
+              <tr>
+                <td class="feature-name">Templates réseaux sociaux</td>
+                <td style="text-align:center"><span class="cross">—</span></td>
+                <td class="highlight" style="text-align:center">6 formats</td>
+                <td style="text-align:center">12 formats</td>
+                <td style="text-align:center">Sur mesure</td>
+              </tr>
+              <tr>
+                <td class="feature-name">Packaging</td>
+                <td style="text-align:center"><span class="cross">—</span></td>
+                <td class="highlight" style="text-align:center"><span class="cross">—</span></td>
+                <td style="text-align:center">1 référence</td>
+                <td style="text-align:center">Gamme complète</td>
+              </tr>
+
+              <!-- Category: Accompagnement -->
+              <tr class="category-row">
+                <td colspan="5">Suivi & Accompagnement</td>
+              </tr>
+              <tr>
+                <td class="feature-name">Révisions incluses</td>
+                <td style="text-align:center">2 tours</td>
+                <td class="highlight" style="text-align:center">3 tours</td>
+                <td style="text-align:center">Illimitées</td>
+                <td style="text-align:center">Illimitées</td>
+              </tr>
+              <tr>
+                <td class="feature-name">Chef de projet dédié</td>
+                <td style="text-align:center"><span class="cross">—</span></td>
+                <td class="highlight" style="text-align:center"><span class="check">✓</span></td>
+                <td style="text-align:center"><span class="check">✓</span></td>
+                <td style="text-align:center"><span class="check">✓</span></td>
+              </tr>
+              <tr>
+                <td class="feature-name">Atelier de co-création</td>
+                <td style="text-align:center"><span class="cross">—</span></td>
+                <td class="highlight" style="text-align:center">1 session</td>
+                <td style="text-align:center">2 sessions</td>
+                <td style="text-align:center">À volonté</td>
+              </tr>
+              <tr>
+                <td class="feature-name">Support post-livraison (mois)</td>
+                <td style="text-align:center">1 mois</td>
+                <td class="highlight" style="text-align:center">3 mois</td>
+                <td style="text-align:center">6 mois</td>
+                <td style="text-align:center">12 mois</td>
+              </tr>
+
+              <!-- Pricing Row -->
+              <tr class="category-row">
+                <td colspan="5">Investissement</td>
+              </tr>
+              <tr>
+                <td class="feature-name" style="font-weight:500; color:var(--cream)">À partir de</td>
+                <td class="price" style="text-align:center">3 500 €</td>
+                <td class="price highlight" style="text-align:center; color:var(--gold-light)">8 500 €</td>
+                <td class="price" style="text-align:center">18 000 €</td>
+                <td class="price" style="text-align:center">Sur devis</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td style="text-align:center; padding-bottom:1.5rem">
+                  <a href="contact.html" class="btn btn--gold" style="font-size:.72rem; padding:.6rem 1rem"><span>Démarrer</span></a>
+                </td>
+                <td class="highlight" style="text-align:center; padding-bottom:1.5rem">
+                  <a href="contact.html" class="btn btn--filled" style="font-size:.72rem; padding:.6rem 1rem"><span>Recommandé</span></a>
+                </td>
+                <td style="text-align:center; padding-bottom:1.5rem">
+                  <a href="contact.html" class="btn btn--gold" style="font-size:.72rem; padding:.6rem 1rem"><span>Démarrer</span></a>
+                </td>
+                <td style="text-align:center; padding-bottom:1.5rem">
+                  <a href="contact.html" class="btn btn--gold" style="font-size:.72rem; padding:.6rem 1rem"><span>Nous contacter</span></a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p style="color:var(--gray-mid); font-family:var(--font-ui); font-size:.85rem; margin-top:1.5rem; text-align:center; max-width:none">
+          * TVA non incluse. Tarifs indicatifs, chaque projet fait l'objet d'un devis personnalisé gratuit. Acompte de 40% à la commande.
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ── Footer ── -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a href="index.html" class="nav__logo">Studio<span style="color:var(--gold)">.</span>Lumière</a>
+          <p>Agence de design parisienne créant des identités visuelles d'exception depuis 2010.</p>
+        </div>
+        <nav class="footer__col" aria-label="Plan du site">
+          <h4>Plan du Site</h4>
+          <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="about.html">À Propos</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="gallery.html">Galerie</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+        <nav class="footer__col" aria-label="Services">
+          <h4>Nos Services</h4>
+          <ul>
+            <li><a href="#identite">Identité Visuelle</a></li>
+            <li><a href="#strategie">Stratégie de Marque</a></li>
+            <li><a href="#editorial">Design Éditorial</a></li>
+            <li><a href="#tarifs">Tableau de Tarifs</a></li>
+          </ul>
+        </nav>
+        <address class="footer__col" style="font-style:normal">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="mailto:bonjour@studiolumiere.fr">bonjour@studiolumiere.fr</a></li>
+            <li><a href="tel:+33140123456">+33 1 40 12 34 56</a></li>
+            <li><span style="color:var(--gray-mid)">12 rue de Rivoli, 75001 Paris</span></li>
+          </ul>
+        </address>
+      </div>
+      <div class="footer__bottom">
+        <p>© 2025 Studio Lumière. Tous droits réservés.</p>
+        <nav class="footer__legal" aria-label="Mentions légales">
+          <a href="#">Mentions Légales</a>
+          <a href="#">Politique de Confidentialité</a>
+          <a href="#">CGU</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const nav = document.getElementById('mainNav');
+    window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 50));
+    document.getElementById('navBurger').addEventListener('click', function() {
+      const open = document.getElementById('navLinks').classList.toggle('open');
+      this.setAttribute('aria-expanded', open);
+    });
+  </script>
+</body>
+</html>

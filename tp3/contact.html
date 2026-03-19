@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Studio Lumière</title>
+  <meta name="description" content="Contactez Studio Lumière pour démarrer votre projet de design. Formulaire en ligne, email, téléphone et adresse à Paris.">
+  <meta name="keywords" content="contact agence design Paris, devis design, Studio Lumière contact">
+  <meta name="robots" content="index, follow">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://studiolumiere.fr/contact.html">
+  <meta property="og:title" content="Contact — Studio Lumière">
+  <meta property="og:description" content="Démarrons votre projet ensemble. Contactez Studio Lumière pour un devis gratuit.">
+  <meta property="og:image" content="https://studiolumiere.fr/og-contact.jpg">
+  <meta property="og:locale" content="fr_FR">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://studiolumiere.fr/contact.html">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ── Contact Layout ── */
+    .contact-body { display: grid; grid-template-columns: 1fr 1.6fr; gap: 6rem; align-items: start; }
+
+    /* ── Contact Info ── */
+    .contact-info { position: sticky; top: 8rem; }
+    .contact-info__item {
+      display: flex;
+      gap: 1.2rem;
+      align-items: flex-start;
+      margin-bottom: 2.5rem;
+    }
+    .contact-info__icon {
+      width: 44px; height: 44px;
+      border: 1px solid var(--gold-pale);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: var(--gold);
+      font-size: 1.1rem;
+    }
+    .contact-info__content strong {
+      display: block;
+      font-family: var(--font-ui);
+      font-size: .78rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--ink);
+      margin-bottom: .3rem;
+    }
+    .contact-info__content a, .contact-info__content p {
+      font-size: 1rem;
+      color: var(--ink-soft);
+      transition: color var(--transition);
+    }
+    .contact-info__content a:hover { color: var(--gold); }
+
+    .contact-hours { margin-top: 3rem; padding: 2rem; background: var(--cream-dark); }
+    .contact-hours h4 {
+      font-family: var(--font-ui);
+      font-size: .78rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+    .contact-hours dl { display: grid; grid-template-columns: auto 1fr; gap: .4rem 1.5rem; }
+    .contact-hours dt { font-family: var(--font-ui); font-size: .9rem; color: var(--ink-soft); }
+    .contact-hours dd { font-family: var(--font-ui); font-size: .9rem; color: var(--ink); }
+
+    /* ── Form ── */
+    .contact-form { }
+    .form-section {
+      margin-bottom: 3rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid var(--cream-dark);
+    }
+    .form-section:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+    .form-section-title {
+      font-family: var(--font-ui);
+      font-size: .72rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+    }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+    .form-group { display: flex; flex-direction: column; gap: .5rem; margin-bottom: 1.5rem; }
+    .form-group:last-child { margin-bottom: 0; }
+    .form-group label {
+      font-family: var(--font-ui);
+      font-size: .78rem;
+      font-weight: 500;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+    }
+    .form-group .required { color: var(--gold); margin-left: .2rem; }
+
+    /* All form inputs */
+    .form-control {
+      font-family: var(--font-body);
+      font-size: 1rem;
+      font-weight: 300;
+      color: var(--ink);
+      background: var(--white);
+      border: 1px solid var(--gray-light);
+      padding: .85rem 1.1rem;
+      width: 100%;
+      transition: border-color var(--transition), box-shadow var(--transition);
+      -webkit-appearance: none;
+      appearance: none;
+      outline: none;
+      border-radius: 0;
+    }
+    .form-control:focus {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px var(--gold-pale);
+    }
+    .form-control::placeholder { color: var(--gray-light); }
+    textarea.form-control { resize: vertical; min-height: 140px; }
+    select.form-control {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238A8078' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+      padding-right: 2.5rem;
+      cursor: pointer;
+    }
+    input[type="range"].form-control {
+      padding: .4rem 0;
+      border: none;
+      background: transparent;
+      box-shadow: none;
+      accent-color: var(--gold);
+    }
+    input[type="range"].form-control:focus { box-shadow: none; }
+
+    /* Checkbox & Radio groups */
+    .check-group, .radio-group { display: flex; flex-direction: column; gap: .7rem; }
+    .check-label, .radio-label {
+      display: flex;
+      align-items: center;
+      gap: .8rem;
+      font-family: var(--font-ui);
+      font-size: .9rem;
+      color: var(--ink-soft);
+      cursor: pointer;
+    }
+    .check-label input[type="checkbox"],
+    .radio-label input[type="radio"] {
+      width: 18px; height: 18px;
+      border: 1px solid var(--gray-light);
+      background: var(--white);
+      appearance: none;
+      -webkit-appearance: none;
+      flex-shrink: 0;
+      cursor: pointer;
+      transition: var(--transition);
+      position: relative;
+    }
+    .radio-label input[type="radio"] { border-radius: 50%; }
+    .check-label input[type="checkbox"]:checked,
+    .radio-label input[type="radio"]:checked {
+      background: var(--gold);
+      border-color: var(--gold);
+    }
+    .check-label input[type="checkbox"]:checked::after {
+      content: '✓';
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      font-size: .7rem;
+      line-height: 1;
+    }
+    .radio-label input[type="radio"]:checked::after {
+      content: '';
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: white;
+    }
+    .check-group-row { display: grid; grid-template-columns: repeat(2,1fr); gap: .7rem 1.5rem; }
+
+    /* File input */
+    .file-input-wrap { position: relative; }
+    .file-input-wrap input[type="file"] {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      cursor: pointer;
+      width: 100%;
+      height: 100%;
+    }
+    .file-input-display {
+      border: 2px dashed var(--gray-light);
+      padding: 2rem;
+      text-align: center;
+      transition: var(--transition);
+      cursor: pointer;
+    }
+    .file-input-wrap:hover .file-input-display,
+    .file-input-wrap:focus-within .file-input-display {
+      border-color: var(--gold);
+      background: var(--gold-pale);
+    }
+    .file-input-display .icon { font-size: 1.5rem; color: var(--gold); margin-bottom: .5rem; }
+    .file-input-display p {
+      font-family: var(--font-ui);
+      font-size: .85rem;
+      color: var(--gray-mid);
+      max-width: none;
+      margin: 0;
+    }
+    .file-input-display span { color: var(--gold); text-decoration: underline; }
+
+    /* Budget slider display */
+    .range-display {
+      display: flex;
+      justify-content: space-between;
+      font-family: var(--font-ui);
+      font-size: .78rem;
+      color: var(--gray-mid);
+      margin-top: .3rem;
+    }
+    .range-value {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--gold);
+      text-align: center;
+      margin-top: .5rem;
+    }
+
+    /* Submit */
+    .form-submit { margin-top: 2.5rem; display: flex; align-items: center; gap: 2rem; flex-wrap: wrap; }
+    .form-submit .gdpr {
+      font-family: var(--font-ui);
+      font-size: .8rem;
+      color: var(--gray-mid);
+      flex: 1;
+      min-width: 20ch;
+    }
+    .form-submit .gdpr a { color: var(--gold); text-decoration: underline; }
+
+    /* ── Map ── */
+    .map-section { background: var(--cream-dark); padding: 0; }
+    .map-wrap {
+      position: relative;
+      padding-bottom: 40%;
+      min-height: 400px;
+    }
+    .map-wrap iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+      filter: grayscale(30%) contrast(1.05) sepia(15%);
+    }
+    .map-overlay {
+      position: absolute;
+      top: 2rem; left: 2rem;
+      background: var(--cream);
+      padding: 1.5rem 2rem;
+      box-shadow: var(--shadow-md);
+      z-index: 1;
+    }
+    .map-overlay strong {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      margin-bottom: .3rem;
+    }
+    .map-overlay p { font-family: var(--font-ui); font-size: .85rem; color: var(--gray-mid); margin: 0; max-width: none; }
+
+    @media (max-width: 1024px) {
+      .contact-body { grid-template-columns: 1fr; gap: 3rem; }
+      .contact-info { position: static; }
+    }
+    @media (max-width: 600px) {
+      .form-row { grid-template-columns: 1fr; }
+      .check-group-row { grid-template-columns: 1fr; }
+      .map-wrap { padding-bottom: 70%; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── Navigation ── -->
+  <nav class="nav scrolled" id="mainNav" role="navigation" aria-label="Navigation principale">
+    <div class="container nav__inner">
+      <a href="index.html" class="nav__logo">Studio<span>.</span>Lumière</a>
+      <ul class="nav__links" id="navLinks">
+        <li><a href="index.html" class="nav__link">Accueil</a></li>
+        <li><a href="about.html" class="nav__link">À Propos</a></li>
+        <li><a href="services.html" class="nav__link">Services</a></li>
+        <li><a href="gallery.html" class="nav__link">Galerie</a></li>
+        <li><a href="contact.html" class="nav__link active">Contact</a></li>
+      </ul>
+      <a href="contact.html" class="nav__cta">Devis Gratuit</a>
+      <button class="nav__burger" id="navBurger" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <main>
+    <!-- ── Page Hero ── -->
+    <header class="page-hero">
+      <div class="container">
+        <p class="label">Nous contacter</p>
+        <div class="divider"></div>
+        <h1>Démarrons<br><em style="font-style:italic; color:var(--gold-light)">Ensemble</em></h1>
+        <p style="margin-top:1.5rem">Partagez votre vision. Nous vous répondons sous 24 heures ouvrées avec une première analyse gratuite de votre projet.</p>
+      </div>
+    </header>
+
+    <!-- ── Contact Section ── -->
+    <section class="section">
+      <div class="container">
+        <div class="contact-body">
+
+          <!-- ── Infos ── -->
+          <aside aria-label="Informations de contact">
+            <p class="label">Coordonnées</p>
+            <div class="divider"></div>
+            <h2>Trouvez-Nous</h2>
+
+            <div style="margin-top:2.5rem">
+              <div class="contact-info__item">
+                <div class="contact-info__icon" aria-hidden="true">✉</div>
+                <address class="contact-info__content" style="font-style:normal">
+                  <strong>Email</strong>
+                  <a href="mailto:bonjour@studiolumiere.fr">bonjour@studiolumiere.fr</a><br>
+                  <a href="mailto:projets@studiolumiere.fr">projets@studiolumiere.fr</a>
+                </address>
+              </div>
+              <div class="contact-info__item">
+                <div class="contact-info__icon" aria-hidden="true">☎</div>
+                <address class="contact-info__content" style="font-style:normal">
+                  <strong>Téléphone</strong>
+                  <a href="tel:+33140123456">+33 (0)1 40 12 34 56</a>
+                </address>
+              </div>
+              <div class="contact-info__item">
+                <div class="contact-info__icon" aria-hidden="true">◎</div>
+                <address class="contact-info__content" style="font-style:normal">
+                  <strong>Adresse</strong>
+                  <p>12 rue de Rivoli<br>75001 Paris, France</p>
+                  <p style="font-size:.85rem; color:var(--gray-mid)">Métro : Châtelet — Ligne 1, 7, 11, 14</p>
+                </address>
+              </div>
+            </div>
+
+            <div class="contact-hours" role="complementary" aria-label="Horaires d'ouverture">
+              <h4>Horaires</h4>
+              <dl>
+                <dt>Lundi – Vendredi</dt>
+                <dd>9h00 – 18h30</dd>
+                <dt>Samedi</dt>
+                <dd>Sur rendez-vous</dd>
+                <dt>Dimanche</dt>
+                <dd>Fermé</dd>
+              </dl>
+            </div>
+          </aside>
+
+          <!-- ── Form ── -->
+          <div>
+            <p class="label">Formulaire de contact</p>
+            <div class="divider"></div>
+            <h2>Décrivez Votre Projet</h2>
+
+            <form class="contact-form" id="contactForm" method="post" action="#" novalidate style="margin-top:2.5rem">
+              <fieldset style="border:none; padding:0; margin:0">
+                <legend style="display:none">Formulaire de contact Studio Lumière</legend>
+
+                <!-- Section 1: Identité -->
+                <div class="form-section">
+                  <div class="form-section-title">01 — Vos Coordonnées</div>
+                  <div class="form-row">
+                    <div class="form-group">
+                      <label for="firstName">Prénom <span class="required" aria-hidden="true">*</span></label>
+                      <input type="text" id="firstName" name="firstName" class="form-control"
+                             placeholder="Antoine" required autocomplete="given-name"
+                             aria-required="true">
+                    </div>
+                    <div class="form-group">
+                      <label for="lastName">Nom <span class="required" aria-hidden="true">*</span></label>
+                      <input type="text" id="lastName" name="lastName" class="form-control"
+                             placeholder="Dupont" required autocomplete="family-name"
+                             aria-required="true">
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="form-group">
+                      <label for="email">Email <span class="required" aria-hidden="true">*</span></label>
+                      <input type="email" id="email" name="email" class="form-control"
+                             placeholder="a.dupont@entreprise.fr" required autocomplete="email"
+                             aria-required="true">
+                    </div>
+                    <div class="form-group">
+                      <label for="phone">Téléphone</label>
+                      <input type="tel" id="phone" name="phone" class="form-control"
+                             placeholder="+33 6 12 34 56 78" autocomplete="tel">
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="form-group">
+                      <label for="company">Entreprise</label>
+                      <input type="text" id="company" name="company" class="form-control"
+                             placeholder="Nom de votre société" autocomplete="organization">
+                    </div>
+                    <div class="form-group">
+                      <label for="website">Site Web actuel</label>
+                      <input type="url" id="website" name="website" class="form-control"
+                             placeholder="https://votre-site.fr" autocomplete="url">
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Section 2: Projet -->
+                <div class="form-section">
+                  <div class="form-section-title">02 — Votre Projet</div>
+                  <div class="form-group">
+                    <label for="projectType">Type de projet <span class="required" aria-hidden="true">*</span></label>
+                    <select id="projectType" name="projectType" class="form-control" required aria-required="true">
+                      <option value="" disabled selected>Sélectionnez un type de projet</option>
+                      <option value="identite">Identité Visuelle (logo + charte)</option>
+                      <option value="strategie">Stratégie de Marque complète</option>
+                      <option value="editorial">Design Éditorial (publication)</option>
+                      <option value="web">Design Web / Digital</option>
+                      <option value="motion">Motion Design / Vidéo</option>
+                      <option value="packaging">Packaging</option>
+                      <option value="autre">Autre</option>
+                    </select>
+                  </div>
+
+                  <div class="form-group">
+                    <label>Services souhaités</label>
+                    <div class="check-group check-group-row">
+                      <label class="check-label">
+                        <input type="checkbox" name="services" value="logo"> Logo & Identité
+                      </label>
+                      <label class="check-label">
+                        <input type="checkbox" name="services" value="charte"> Charte Graphique
+                      </label>
+                      <label class="check-label">
+                        <input type="checkbox" name="services" value="web"> Site Web
+                      </label>
+                      <label class="check-label">
+                        <input type="checkbox" name="services" value="print"> Print & Éditorial
+                      </label>
+                      <label class="check-label">
+                        <input type="checkbox" name="services" value="social"> Réseaux Sociaux
+                      </label>
+                      <label class="check-label">
+                        <input type="checkbox" name="services" value="packaging"> Packaging
+                      </label>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="deadline">Délai souhaité</label>
+                    <input type="date" id="deadline" name="deadline" class="form-control"
+                           min="2025-01-01">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="message">Description du projet <span class="required" aria-hidden="true">*</span></label>
+                    <textarea id="message" name="message" class="form-control" rows="6"
+                              placeholder="Décrivez votre projet, vos objectifs, votre audience cible et toute information qui nous aiderait à comprendre votre vision..."
+                              required aria-required="true"></textarea>
+                  </div>
+                </div>
+
+                <!-- Section 3: Budget -->
+                <div class="form-section">
+                  <div class="form-section-title">03 — Budget & Délai</div>
+                  <div class="form-group">
+                    <label>Enveloppe budgétaire</label>
+                    <div class="radio-group" style="flex-direction:row; flex-wrap:wrap; gap:.7rem 2rem">
+                      <label class="radio-label">
+                        <input type="radio" name="budget" value="moins-5k"> Moins de 5 000 €
+                      </label>
+                      <label class="radio-label">
+                        <input type="radio" name="budget" value="5-15k"> 5 000 – 15 000 €
+                      </label>
+                      <label class="radio-label">
+                        <input type="radio" name="budget" value="15-30k"> 15 000 – 30 000 €
+                      </label>
+                      <label class="radio-label">
+                        <input type="radio" name="budget" value="plus-30k"> Plus de 30 000 €
+                      </label>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="priorite">Priorité du projet</label>
+                    <input type="range" id="priorite" name="priorite" class="form-control"
+                           min="1" max="5" value="3" step="1" aria-valuemin="1" aria-valuemax="5" aria-valuenow="3">
+                    <div class="range-display">
+                      <span>Exploration tranquille</span>
+                      <span>Urgent !</span>
+                    </div>
+                    <div class="range-value" id="rangeVal" aria-live="polite">Priorité 3/5</div>
+                  </div>
+                </div>
+
+                <!-- Section 4: Documents -->
+                <div class="form-section">
+                  <div class="form-section-title">04 — Documents</div>
+                  <div class="form-group">
+                    <label>Joindre un brief, moodboard ou document de référence</label>
+                    <div class="file-input-wrap">
+                      <input type="file" id="brief" name="brief"
+                             accept=".pdf,.doc,.docx,.jpg,.jpeg,.png,.zip"
+                             aria-label="Choisir un fichier (PDF, Word, Image, ZIP)">
+                      <div class="file-input-display">
+                        <div class="icon" aria-hidden="true">⊕</div>
+                        <p>Glissez votre fichier ici ou <span>parcourir</span></p>
+                        <p style="margin-top:.3rem; font-size:.75rem">PDF, Word, Image, ZIP — Max 10 Mo</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="howFound">Comment nous avez-vous trouvés ?</label>
+                    <select id="howFound" name="howFound" class="form-control">
+                      <option value="" disabled selected>Sélectionnez une option</option>
+                      <option value="google">Recherche Google</option>
+                      <option value="instagram">Instagram</option>
+                      <option value="linkedin">LinkedIn</option>
+                      <option value="recommandation">Recommandation</option>
+                      <option value="presse">Article / Presse</option>
+                      <option value="autre">Autre</option>
+                    </select>
+                  </div>
+                </div>
+
+                <!-- RGPD & Submit -->
+                <div class="form-submit">
+                  <div class="form-group" style="flex:none; margin:0">
+                    <label class="check-label">
+                      <input type="checkbox" name="rgpd" required aria-required="true">
+                      <span style="font-size:.85rem">J'accepte la <a href="#" style="color:var(--gold); text-decoration:underline">politique de confidentialité</a> et le traitement de mes données pour le traitement de ma demande. <span class="required">*</span></span>
+                    </label>
+                    <label class="check-label" style="margin-top:.5rem">
+                      <input type="checkbox" name="newsletter">
+                      <span style="font-size:.85rem">Je souhaite recevoir la newsletter Studio Lumière (inspirations & actualités)</span>
+                    </label>
+                  </div>
+                  <button type="submit" class="btn btn--filled" style="flex-shrink:0"><span>Envoyer ma Demande</span></button>
+                </div>
+
+              </fieldset>
+            </form>
+
+            <!-- Success Message (hidden) -->
+            <div id="successMsg" style="display:none; background:var(--gold-pale); border:1px solid var(--gold); padding:2rem; margin-top:2rem;" role="alert">
+              <strong style="display:block; font-family:var(--font-display); font-size:1.3rem; margin-bottom:.5rem">Message envoyé avec succès !</strong>
+              <p style="margin:0; font-size:1rem">Merci pour votre demande. Notre équipe vous contactera dans les 24 heures ouvrées pour discuter de votre projet.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Map ── -->
+    <section class="map-section" aria-label="Localisation du studio">
+      <div class="map-wrap">
+        <iframe
+          src="https://www.openstreetmap.org/export/embed.html?bbox=2.3450%2C48.8550%2C2.3600%2C48.8640&layer=mapnik&marker=48.8584%2C2.3500"
+          title="Carte interactive — Studio Lumière, 12 rue de Rivoli, Paris"
+          loading="lazy"
+          aria-label="Carte de localisation Studio Lumière à Paris"
+          allowfullscreen>
+        </iframe>
+        <div class="map-overlay">
+          <strong>Studio Lumière</strong>
+          <p>12 rue de Rivoli, 75001 Paris</p>
+          <p>Métro : Châtelet</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ── Footer ── -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a href="index.html" class="nav__logo">Studio<span style="color:var(--gold)">.</span>Lumière</a>
+          <p>Agence de design parisienne créant des identités visuelles d'exception depuis 2010.</p>
+        </div>
+        <nav class="footer__col" aria-label="Plan du site">
+          <h4>Plan du Site</h4>
+          <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="about.html">À Propos</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="gallery.html">Galerie</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+        <nav class="footer__col" aria-label="Services">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="services.html#identite">Identité Visuelle</a></li>
+            <li><a href="services.html#strategie">Stratégie de Marque</a></li>
+            <li><a href="services.html#editorial">Design Éditorial</a></li>
+            <li><a href="services.html#web">Web & Digital</a></li>
+          </ul>
+        </nav>
+        <address class="footer__col" style="font-style:normal">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="mailto:bonjour@studiolumiere.fr">bonjour@studiolumiere.fr</a></li>
+            <li><a href="tel:+33140123456">+33 1 40 12 34 56</a></li>
+            <li><span style="color:var(--gray-mid)">12 rue de Rivoli, 75001 Paris</span></li>
+          </ul>
+        </address>
+      </div>
+      <div class="footer__bottom">
+        <p>© 2025 Studio Lumière. Tous droits réservés.</p>
+        <nav class="footer__legal" aria-label="Mentions légales">
+          <a href="#">Mentions Légales</a>
+          <a href="#">Politique de Confidentialité</a>
+          <a href="#">CGU</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Nav
+    const nav = document.getElementById('mainNav');
+    window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 50));
+    document.getElementById('navBurger').addEventListener('click', function() {
+      const open = document.getElementById('navLinks').classList.toggle('open');
+      this.setAttribute('aria-expanded', open);
+    });
+
+    // Range slider display
+    const range = document.getElementById('priorite');
+    const rangeVal = document.getElementById('rangeVal');
+    range.addEventListener('input', () => {
+      rangeVal.textContent = `Priorité ${range.value}/5`;
+      rangeVal.setAttribute('aria-valuenow', range.value);
+    });
+
+    // File input display
+    document.getElementById('brief').addEventListener('change', function() {
+      const display = this.parentNode.querySelector('.file-input-display p:first-of-type');
+      if (this.files && this.files[0]) {
+        display.innerHTML = `<strong style="color:var(--ink)">${this.files[0].name}</strong>`;
+      }
+    });
+
+    // Form submit simulation
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      if (!this.checkValidity()) {
+        this.reportValidity();
+        return;
+      }
+      this.style.display = 'none';
+      document.getElementById('successMsg').style.display = 'block';
+      document.getElementById('successMsg').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+  </script>
+</body>
+</html>

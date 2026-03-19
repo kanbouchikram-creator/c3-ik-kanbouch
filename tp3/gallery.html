@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galerie — Studio Lumière</title>
+  <meta name="description" content="Découvrez les réalisations de Studio Lumière : identités visuelles, packaging, design éditorial et digital pour des marques de premier plan.">
+  <meta name="keywords" content="portfolio design, réalisations graphiques, identité visuelle exemples, galerie créations">
+  <meta name="robots" content="index, follow">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://studiolumiere.fr/gallery.html">
+  <meta property="og:title" content="Galerie — Studio Lumière">
+  <meta property="og:description" content="Portfolio de réalisations : identités visuelles, packaging, digital et design éditorial.">
+  <meta property="og:image" content="https://studiolumiere.fr/og-gallery.jpg">
+  <meta property="og:locale" content="fr_FR">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://studiolumiere.fr/gallery.html">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ── Gallery Filters ── */
+    .gallery-filters {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 3.5rem;
+    }
+    .filter-btn {
+      font-family: var(--font-ui);
+      font-size: .78rem;
+      font-weight: 500;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      padding: .55rem 1.4rem;
+      border: 1px solid var(--gray-light);
+      background: transparent;
+      color: var(--ink-soft);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .filter-btn:hover, .filter-btn.active {
+      border-color: var(--gold);
+      color: var(--gold);
+      background: var(--gold-pale);
+    }
+
+    /* ── Masonry-style Gallery ── */
+    .gallery-grid {
+      columns: 3;
+      column-gap: 1.5rem;
+    }
+    .gallery-item {
+      break-inside: avoid;
+      margin-bottom: 1.5rem;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      display: block;
+    }
+    .gallery-item img {
+      width: 100%;
+      display: block;
+      transition: transform .6s ease;
+    }
+    .gallery-item:hover img { transform: scale(1.04); }
+    .gallery-item__overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(26,22,18,.85) 0%, transparent 55%);
+      opacity: 0;
+      transition: opacity var(--transition);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 1.8rem;
+    }
+    .gallery-item:hover .gallery-item__overlay { opacity: 1; }
+    .gallery-item__overlay .label { color: var(--gold-light); margin-bottom: .3rem; }
+    .gallery-item__overlay h3 { color: var(--cream); font-size: 1.2rem; }
+    .gallery-item__overlay p { color: var(--gray-light); font-size: .95rem; margin-top: .3rem; }
+
+    /* ── Featured Project ── */
+    .case-study {
+      background: var(--ink);
+      padding: var(--section-pad) 0;
+    }
+    .case-study__inner {
+      display: grid;
+      grid-template-columns: 1fr 1.3fr;
+      gap: 5rem;
+      align-items: center;
+    }
+    .case-study__text .label { color: var(--gold-light); }
+    .case-study__text h2 { color: var(--cream); }
+    .case-study__text p { color: var(--gray-light); margin-top: 1.2rem; }
+    .case-study__meta {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+      padding-top: 2.5rem;
+      border-top: 1px solid rgba(255,255,255,.1);
+    }
+    .case-study__meta-item .meta-label {
+      font-family: var(--font-ui);
+      font-size: .72rem;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: var(--gray-mid);
+      margin-bottom: .3rem;
+    }
+    .case-study__meta-item .meta-val {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      color: var(--cream);
+    }
+    .case-study__images {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      grid-template-rows: auto auto;
+      gap: 1rem;
+    }
+    .case-study__images picture:first-child { grid-row: span 2; }
+    .case-study__images img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .case-study__images picture:first-child img { aspect-ratio: 2/3; }
+    .case-study__images picture:not(:first-child) img { aspect-ratio: 4/3; }
+
+    /* ── Lightbox ── */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(26,22,18,.96);
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity var(--transition);
+    }
+    .lightbox.open { opacity: 1; pointer-events: all; }
+    .lightbox__img { max-width: 90vw; max-height: 85vh; object-fit: contain; }
+    .lightbox__close {
+      position: absolute;
+      top: 2rem; right: 2rem;
+      font-family: var(--font-ui);
+      font-size: 1.5rem;
+      color: var(--cream);
+      background: none;
+      border: none;
+      cursor: pointer;
+      line-height: 1;
+      padding: .5rem;
+    }
+    .lightbox__caption {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      color: var(--gray-light);
+      font-family: var(--font-ui);
+      font-size: .85rem;
+    }
+
+    @media (max-width: 1024px) {
+      .gallery-grid { columns: 2; }
+      .case-study__inner { grid-template-columns: 1fr; gap: 3rem; }
+    }
+    @media (max-width: 600px) {
+      .gallery-grid { columns: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── Navigation ── -->
+  <nav class="nav scrolled" id="mainNav" role="navigation" aria-label="Navigation principale">
+    <div class="container nav__inner">
+      <a href="index.html" class="nav__logo">Studio<span>.</span>Lumière</a>
+      <ul class="nav__links" id="navLinks">
+        <li><a href="index.html" class="nav__link">Accueil</a></li>
+        <li><a href="about.html" class="nav__link">À Propos</a></li>
+        <li><a href="services.html" class="nav__link">Services</a></li>
+        <li><a href="gallery.html" class="nav__link active">Galerie</a></li>
+        <li><a href="contact.html" class="nav__link">Contact</a></li>
+      </ul>
+      <a href="contact.html" class="nav__cta">Devis Gratuit</a>
+      <button class="nav__burger" id="navBurger" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <main>
+    <!-- ── Page Hero ── -->
+    <header class="page-hero">
+      <div class="container">
+        <p class="label">Portfolio</p>
+        <div class="divider"></div>
+        <h1>Nos Créations<br><em style="font-style:italic; color:var(--gold-light)">Récentes</em></h1>
+        <p style="margin-top:1.5rem">Chaque projet est une histoire. Explorez notre portfolio et découvrez comment nous transformons des visions en identités mémorables.</p>
+      </div>
+    </header>
+
+    <!-- ── Gallery ── -->
+    <section class="section">
+      <div class="container">
+        <!-- Filters -->
+        <div class="gallery-filters" role="group" aria-label="Filtres de galerie">
+          <button class="filter-btn active" data-filter="all">Tous les Projets</button>
+          <button class="filter-btn" data-filter="identite">Identité</button>
+          <button class="filter-btn" data-filter="editorial">Éditorial</button>
+          <button class="filter-btn" data-filter="digital">Digital</button>
+          <button class="filter-btn" data-filter="packaging">Packaging</button>
+        </div>
+
+        <!-- Masonry Grid -->
+        <div class="gallery-grid" id="galleryGrid">
+
+          <article class="gallery-item" data-category="identite" tabindex="0" role="button" aria-label="Ouvrir le projet Maison Rivière">
+            <picture>
+              <source media="(min-width: 1200px)"
+                      srcset="https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?w=600&q=80 600w,
+                              https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?w=900&q=80 900w"
+                      sizes="30vw" type="image/jpeg">
+              <source media="(min-width: 600px)"
+                      srcset="https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?w=500&q=80 500w"
+                      sizes="45vw" type="image/jpeg">
+              <img src="https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?w=400&q=80"
+                   alt="Identité visuelle Maison Rivière"
+                   width="600" height="800" loading="lazy">
+            </picture>
+            <div class="gallery-item__overlay">
+              <span class="label">Identité Visuelle</span>
+              <h3>Maison Rivière</h3>
+              <p>Branding complet pour maison de luxe</p>
+            </div>
+          </article>
+
+          <article class="gallery-item" data-category="editorial" tabindex="0" role="button" aria-label="Ouvrir le projet Épure Magazine">
+            <picture>
+              <source media="(min-width: 600px)"
+                      srcset="https://images.unsplash.com/photo-1609659893022-7049c4d95ad8?w=500&q=80 500w,
+                              https://images.unsplash.com/photo-1609659893022-7049c4d95ad8?w=700&q=80 700w"
+                      sizes="(min-width: 1200px) 30vw, 45vw" type="image/jpeg">
+              <img src="https://images.unsplash.com/photo-1609659893022-7049c4d95ad8?w=400&q=80"
+                   alt="Design éditorial magazine Épure"
+                   width="500" height="333" loading="lazy">
+            </picture>
+            <div class="gallery-item__overlay">
+              <span class="label">Design Éditorial</span>
+              <h3>Épure Magazine</h3>
+              <p>Publication trimestrielle de mode</p>
+            </div>
+          </article>
+
+          <article class="gallery-item" data-category="packaging" tabindex="0" role="button" aria-label="Ouvrir le projet Essence Botanik">
+            <picture>
+              <source media="(min-width: 600px)"
+                      srcset="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=500&q=80 500w"
+                      sizes="(min-width: 1200px) 30vw, 45vw" type="image/jpeg">
+              <img src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=400&q=80"
+                   alt="Packaging Essence Botanik parfumerie"
+                   width="500" height="500" loading="lazy">
+            </picture>
+            <div class="gallery-item__overlay">
+              <span class="label">Packaging</span>
+              <h3>Essence Botanik</h3>
+              <p>Collection packaging parfumerie premium</p>
+            </div>
+          </article>
+
+          <article class="gallery-item" data-category="digital" tabindex="0" role="button" aria-label="Ouvrir le projet Nomade App">
+            <picture>
+              <source media="(min-width: 600px)"
+                      srcset="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=500&q=80 500w"
+                      sizes="(min-width: 1200px) 30vw, 45vw" type="image/jpeg">
+              <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=400&q=80"
+                   alt="Application mobile Nomade design UX/UI"
+                   width="500" height="750" loading="lazy">
+            </picture>
+            <div class="gallery-item__overlay">
+              <span class="label">Digital</span>
+              <h3>Nomade App</h3>
+              <p>UX/UI pour application de voyage</p>
+            </div>
+          </article>
+
+          <article class="gallery-item" data-category="identite" tabindex="0" role="button" aria-label="Ouvrir le projet Atelier Blanc">
+            <picture>
+              <source media="(min-width: 600px)"
+                      srcset="https://images.unsplash.com/photo-1613909207039-6b173b755cc1?w=500&q=80 500w"
+                      sizes="(min-width: 1200px) 30vw, 45vw" type="image/jpeg">
+              <img src="https://images.unsplash.com/photo-1613909207039-6b173b755cc1?w=400&q=80"
+                   alt="Identité visuelle Atelier Blanc céramique"
+                   width="500" height="350" loading="lazy">
+            </picture>
+            <div class="gallery-item__overlay">
+              <span class="label">Identité Visuelle</span>
+              <h3>Atelier Blanc</h3>
+              <p>Identité pour studio de céramique</p>
+            </div>
+          </article>
+
+          <article class="gallery-item" data-category="editorial" tabindex="0" role="button" aria-label="Ouvrir le projet Rapport Annuel FNA">
+            <picture>
+              <source media="(min-width: 600px)"
+                      srcset="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=500&q=80 500w"
+                      sizes="(min-width: 1200px) 30vw, 45vw" type="image/jpeg">
+              <img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400&q=80"
+                   alt="Rapport annuel Fondation Nationale des Arts"
+                   width="500" height="333" loading="lazy">
+            </picture>
+            <div class="gallery-item__overlay">
+              <span class="label">Éditorial</span>
+              <h3>Rapport Annuel FNA</h3>
+              <p>Publication institutionnelle 120 pages</p>
+            </div>
+          </article>
+
+          <article class="gallery-item" data-category="packaging" tabindex="0" role="button" aria-label="Ouvrir le projet Chocolaterie Noir">
+            <picture>
+              <source media="(min-width: 600px)"
+                      srcset="https://images.unsplash.com/photo-1606312619070-d48b4c652a52?w=500&q=80 500w"
+                      sizes="(min-width: 1200px) 30vw, 45vw" type="image/jpeg">
+              <img src="https://images.unsplash.com/photo-1606312619070-d48b4c652a52?w=400&q=80"
+                   alt="Packaging Chocolaterie Noir artisan"
+                   width="500" height="600" loading="lazy">
+            </picture>
+            <div class="gallery-item__overlay">
+              <span class="label">Packaging</span>
+              <h3>Chocolaterie Noir</h3>
+              <p>Packaging artisan chocolatier premium</p>
+            </div>
+          </article>
+
+          <article class="gallery-item" data-category="digital" tabindex="0" role="button" aria-label="Ouvrir le projet Vitrine Collective">
+            <picture>
+              <source media="(min-width: 600px)"
+                      srcset="https://images.unsplash.com/photo-1545239351-ef35f43d514b?w=500&q=80 500w"
+                      sizes="(min-width: 1200px) 30vw, 45vw" type="image/jpeg">
+              <img src="https://images.unsplash.com/photo-1545239351-ef35f43d514b?w=400&q=80"
+                   alt="Site e-commerce Vitrine Collective galerie d'art"
+                   width="500" height="350" loading="lazy">
+            </picture>
+            <div class="gallery-item__overlay">
+              <span class="label">Digital</span>
+              <h3>Vitrine Collective</h3>
+              <p>Plateforme e-commerce galerie d'art</p>
+            </div>
+          </article>
+
+          <article class="gallery-item" data-category="identite" tabindex="0" role="button" aria-label="Ouvrir le projet Fonderie Gault">
+            <picture>
+              <source media="(min-width: 600px)"
+                      srcset="https://images.unsplash.com/photo-1626785774573-4b799315345d?w=500&q=80 500w"
+                      sizes="(min-width: 1200px) 30vw, 45vw" type="image/jpeg">
+              <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?w=400&q=80"
+                   alt="Identité Fonderie Gault architecture"
+                   width="500" height="650" loading="lazy">
+            </picture>
+            <div class="gallery-item__overlay">
+              <span class="label">Identité Visuelle</span>
+              <h3>Fonderie Gault</h3>
+              <p>Branding cabinet d'architecture</p>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Featured Case Study ── -->
+    <section class="case-study">
+      <div class="container">
+        <div class="case-study__inner">
+          <div class="case-study__text">
+            <p class="label" style="color:var(--gold-light)">Étude de Cas</p>
+            <div class="divider"></div>
+            <h2>Maison Rivière — Redéfinir le Luxe Contemporain</h2>
+            <p>Face à un marché saturé, Maison Rivière avait besoin d'une identité qui incarne à la fois l'héritage artisanal et une modernité assumée. Résultat : une refonte totale en 12 semaines qui a conduit à une augmentation de 40% de la notoriété spontanée.</p>
+            <div class="case-study__meta">
+              <div class="case-study__meta-item">
+                <div class="meta-label">Client</div>
+                <div class="meta-val">Maison Rivière</div>
+              </div>
+              <div class="case-study__meta-item">
+                <div class="meta-label">Secteur</div>
+                <div class="meta-val">Mode Luxe</div>
+              </div>
+              <div class="case-study__meta-item">
+                <div class="meta-label">Durée</div>
+                <div class="meta-val">12 semaines</div>
+              </div>
+              <div class="case-study__meta-item">
+                <div class="meta-label">Services</div>
+                <div class="meta-val">Identité, Web, Print</div>
+              </div>
+            </div>
+          </div>
+          <div class="case-study__images">
+            <picture>
+              <source media="(min-width: 768px)"
+                      srcset="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80 600w,
+                              https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80 800w"
+                      sizes="(min-width: 1200px) 25vw, 40vw">
+              <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80"
+                   alt="Résultat final identité Maison Rivière" loading="lazy">
+            </picture>
+            <picture>
+              <source srcset="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=500&q=80 500w"
+                      sizes="(min-width: 1200px) 20vw, 35vw">
+              <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=350&q=80"
+                   alt="Application logo Maison Rivière boutique" loading="lazy">
+            </picture>
+            <picture>
+              <source srcset="https://images.unsplash.com/photo-1597633425046-08f4c6a93be1?w=500&q=80 500w"
+                      sizes="(min-width: 1200px) 20vw, 35vw">
+              <img src="https://images.unsplash.com/photo-1597633425046-08f4c6a93be1?w=350&q=80"
+                   alt="Packaging luxe Maison Rivière" loading="lazy">
+            </picture>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ── Lightbox ── -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Aperçu du projet">
+    <button class="lightbox__close" id="lightboxClose" aria-label="Fermer">✕</button>
+    <img class="lightbox__img" id="lightboxImg" src="" alt="">
+    <div class="lightbox__caption" id="lightboxCaption"></div>
+  </div>
+
+  <!-- ── Footer ── -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a href="index.html" class="nav__logo">Studio<span style="color:var(--gold)">.</span>Lumière</a>
+          <p>Agence de design parisienne créant des identités visuelles d'exception depuis 2010.</p>
+        </div>
+        <nav class="footer__col" aria-label="Plan du site">
+          <h4>Plan du Site</h4>
+          <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="about.html">À Propos</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="gallery.html">Galerie</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+        <nav class="footer__col" aria-label="Catégories portfolio">
+          <h4>Portfolio</h4>
+          <ul>
+            <li><a href="#" onclick="filterGallery('identite'); return false">Identité Visuelle</a></li>
+            <li><a href="#" onclick="filterGallery('editorial'); return false">Design Éditorial</a></li>
+            <li><a href="#" onclick="filterGallery('digital'); return false">Digital & Web</a></li>
+            <li><a href="#" onclick="filterGallery('packaging'); return false">Packaging</a></li>
+          </ul>
+        </nav>
+        <address class="footer__col" style="font-style:normal">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="mailto:bonjour@studiolumiere.fr">bonjour@studiolumiere.fr</a></li>
+            <li><a href="tel:+33140123456">+33 1 40 12 34 56</a></li>
+            <li><span style="color:var(--gray-mid)">12 rue de Rivoli, 75001 Paris</span></li>
+          </ul>
+        </address>
+      </div>
+      <div class="footer__bottom">
+        <p>© 2025 Studio Lumière. Tous droits réservés.</p>
+        <nav class="footer__legal" aria-label="Mentions légales">
+          <a href="#">Mentions Légales</a>
+          <a href="#">Politique de Confidentialité</a>
+          <a href="#">CGU</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Nav scroll
+    const nav = document.getElementById('mainNav');
+    window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 50));
+    document.getElementById('navBurger').addEventListener('click', function() {
+      const open = document.getElementById('navLinks').classList.toggle('open');
+      this.setAttribute('aria-expanded', open);
+    });
+
+    // Gallery filter
+    function filterGallery(cat) {
+      document.querySelectorAll('.gallery-item').forEach(item => {
+        item.style.display = (cat === 'all' || item.dataset.category === cat) ? 'block' : 'none';
+      });
+      document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.filter === cat);
+      });
+    }
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => filterGallery(btn.dataset.filter));
+    });
+
+    // Lightbox
+    const lightbox = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lightboxImg');
+    const lbCap = document.getElementById('lightboxCaption');
+
+    document.querySelectorAll('.gallery-item').forEach(item => {
+      item.addEventListener('click', () => {
+        const img = item.querySelector('img');
+        const h3 = item.querySelector('h3');
+        const p = item.querySelector('p');
+        lbImg.src = img.src;
+        lbImg.alt = img.alt;
+        lbCap.textContent = (h3 ? h3.textContent : '') + (p ? ' — ' + p.textContent : '');
+        lightbox.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+    function closeLightbox() {
+      lightbox.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+  </script>
+</body>
+</html>

@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>À Propos — Studio Lumière</title>
+  <meta name="description" content="Découvrez l'équipe de Studio Lumière — des designers passionnés, stratèges et créatifs qui donnent vie aux marques les plus exigeantes depuis 2010.">
+  <meta name="robots" content="index, follow">
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://studiolumiere.fr/about.html">
+  <meta property="og:title" content="Notre Équipe — Studio Lumière">
+  <meta property="og:description" content="Rencontrez les designers et stratèges derrière Studio Lumière.">
+  <meta property="og:image" content="https://studiolumiere.fr/og-about.jpg">
+  <meta property="og:locale" content="fr_FR">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://studiolumiere.fr/about.html">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ── Values ── */
+    .values-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2.5rem; }
+    .value-item { padding: 2.5rem; background: var(--white); border-top: 3px solid var(--gold); }
+    .value-item__num {
+      font-family: var(--font-display);
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--gold-pale);
+      line-height: 1;
+      margin-bottom: .5rem;
+    }
+    .value-item h3 { font-size: 1.2rem; margin-bottom: .8rem; }
+    .value-item p { font-size: 1rem; color: var(--ink-soft); }
+
+    /* ── Team ── */
+    .team-intro { display: grid; grid-template-columns: 1fr 1.4fr; gap: 5rem; align-items: center; margin-bottom: 5rem; }
+    .team-intro__visual { position: relative; }
+    .team-intro__visual picture img {
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+    }
+    .team-intro__tag {
+      position: absolute;
+      top: 2rem; right: -2rem;
+      background: var(--ink);
+      color: var(--cream);
+      padding: 1.2rem 1.5rem;
+      font-family: var(--font-ui);
+      font-size: .78rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .team-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 2rem; }
+    .team-card { text-align: center; }
+    .team-card figure { margin-bottom: 1.2rem; overflow: hidden; }
+    .team-card figure img {
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: cover;
+      object-position: top;
+      transition: transform .6s ease;
+    }
+    .team-card:hover figure img { transform: scale(1.05); }
+    .team-card figcaption {
+      padding: .5rem 0;
+    }
+    .team-card figcaption cite {
+      display: block;
+      font-family: var(--font-display);
+      font-style: normal;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: .2rem;
+    }
+    .team-card figcaption .role {
+      font-family: var(--font-ui);
+      font-size: .75rem;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: block;
+      margin-bottom: .5rem;
+    }
+    .team-card figcaption p {
+      font-size: .95rem;
+      color: var(--gray-mid);
+      max-width: 24ch;
+      margin: 0 auto;
+    }
+
+    /* ── Partners ── */
+    .partners { background: var(--ink); padding: 5rem 0; }
+    .partners-logos { display: flex; gap: 4rem; flex-wrap: wrap; justify-content: center; align-items: center; margin-top: 3rem; }
+    .partners-logos span {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 600;
+      letter-spacing: .08em;
+      color: rgba(255,255,255,.2);
+      transition: color var(--transition);
+      cursor: default;
+    }
+    .partners-logos span:hover { color: rgba(255,255,255,.6); }
+
+    /* ── Awards Timeline ── */
+    .awards { background: var(--cream-dark); }
+    .timeline { position: relative; padding-left: 3rem; }
+    .timeline::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 1px; background: var(--gold-pale); }
+    .timeline-item { position: relative; padding-bottom: 3rem; }
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -3.3rem; top: .4rem;
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--gold);
+      border: 2px solid var(--cream-dark);
+    }
+    .timeline-item .year {
+      font-family: var(--font-ui);
+      font-size: .72rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: .3rem;
+    }
+    .timeline-item h3 { font-size: 1.1rem; margin-bottom: .4rem; }
+    .timeline-item p { font-size: .95rem; color: var(--ink-soft); max-width: 55ch; }
+
+    @media (max-width: 1024px) {
+      .team-grid { grid-template-columns: repeat(2,1fr); }
+      .values-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 768px) {
+      .team-intro { grid-template-columns: 1fr; gap: 2.5rem; }
+      .team-intro__tag { right: 0; }
+      .team-grid { grid-template-columns: repeat(2,1fr); }
+    }
+    @media (max-width: 480px) {
+      .team-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── Navigation ── -->
+  <nav class="nav scrolled" id="mainNav" role="navigation" aria-label="Navigation principale">
+    <div class="container nav__inner">
+      <a href="index.html" class="nav__logo">Studio<span>.</span>Lumière</a>
+      <ul class="nav__links" id="navLinks">
+        <li><a href="index.html" class="nav__link">Accueil</a></li>
+        <li><a href="about.html" class="nav__link active">À Propos</a></li>
+        <li><a href="services.html" class="nav__link">Services</a></li>
+        <li><a href="gallery.html" class="nav__link">Galerie</a></li>
+        <li><a href="contact.html" class="nav__link">Contact</a></li>
+      </ul>
+      <a href="contact.html" class="nav__cta">Devis Gratuit</a>
+      <button class="nav__burger" id="navBurger" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <main>
+    <!-- ── Page Hero ── -->
+    <header class="page-hero">
+      <div class="container">
+        <p class="label">Notre Histoire</p>
+        <div class="divider"></div>
+        <h1>L'Équipe<br><em style="font-style:italic; color:var(--gold-light)">Derrière</em> la Vision</h1>
+        <p style="margin-top:1.5rem">Un collectif de créatifs passionnés, réunis par un amour du design et une conviction profonde : que la beauté au service du sens peut transformer les marques.</p>
+      </div>
+    </header>
+
+    <!-- ── Values ── -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <p class="label">Ce qui nous anime</p>
+          <div class="divider"></div>
+          <h2>Nos Valeurs Fondatrices</h2>
+        </div>
+        <div class="values-grid">
+          <div class="value-item animate-up">
+            <div class="value-item__num">01</div>
+            <h3>Exigence Créative</h3>
+            <p>Nous ne livrons que ce qui nous enthousiasme. Chaque détail est pensé, chaque courbe justifiée, chaque couleur choisie avec intention.</p>
+          </div>
+          <div class="value-item animate-up">
+            <div class="value-item__num">02</div>
+            <h3>Écoute Profonde</h3>
+            <p>Le meilleur design naît d'une compréhension intime de votre vision, de vos clients et de vos ambitions. Nous prenons le temps d'écouter avant de créer.</p>
+          </div>
+          <div class="value-item animate-up">
+            <div class="value-item__num">03</div>
+            <h3>Impact Durable</h3>
+            <p>Nous concevons pour la longévité. Pas pour la tendance de la saison, mais pour des identités qui resteront pertinentes et puissantes pour les décennies à venir.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Team Intro ── -->
+    <section class="section" style="background: var(--cream-dark);">
+      <div class="container">
+        <div class="team-intro">
+          <div class="team-intro__visual">
+            <picture>
+              <source media="(min-width: 1024px)"
+                      srcset="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80 600w,
+                              https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80 800w"
+                      sizes="30vw" type="image/jpeg">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&q=80"
+                   alt="Portrait d'Antoine Moreau, fondateur de Studio Lumière"
+                   width="500" height="667" loading="lazy">
+            </picture>
+            <div class="team-intro__tag">Fondateur & Directeur Créatif</div>
+          </div>
+          <div>
+            <p class="label">Le Fondateur</p>
+            <div class="divider"></div>
+            <h2>Antoine Moreau</h2>
+            <p style="font-size:1.2rem; font-style:italic; color:var(--ink-soft); margin-bottom:1.5rem">«&thinsp;Le design n'est pas de la décoration. C'est la façon dont une marque pense.&thinsp;»</p>
+            <p>Après quinze années passées dans les plus grandes agences de Paris, Londres et Tokyo, Antoine a fondé Studio Lumière avec une conviction simple : les meilleures marques ne sont pas celles qui crient le plus fort, mais celles qui parlent avec le plus de justesse.</p>
+            <p style="margin-top:1rem">Diplômé de l'École des Arts Décoratifs de Paris, il a collaboré avec Hermès, Chanel et une cinquantaine d'acteurs internationaux avant de créer son propre studio en 2010.</p>
+          </div>
+        </div>
+
+        <!-- Team Grid -->
+        <div class="section-header">
+          <p class="label">Rencontrez l'Équipe</p>
+          <div class="divider"></div>
+          <h2>Des Talents Exceptionnels</h2>
+        </div>
+        <div class="team-grid">
+
+          <article class="team-card">
+            <figure>
+              <picture>
+                <source srcset="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=400&h=400&fit=crop&q=80 400w,
+                                https://images.unsplash.com/photo-1494790108755-2616b612b786?w=600&h=600&fit=crop&q=80 600w"
+                        sizes="(min-width: 1200px) 280px, (min-width: 768px) 22vw, 45vw">
+                <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=400&h=400&fit=crop&q=80"
+                     alt="Portrait de Camille Rousseau, Directrice Artistique" width="400" height="400" loading="lazy">
+              </picture>
+              <figcaption>
+                <cite>Camille Rousseau</cite>
+                <span class="role">Directrice Artistique</span>
+                <p>Spécialiste des systèmes visuels et de la typographie éditoriale.</p>
+              </figcaption>
+            </figure>
+          </article>
+
+          <article class="team-card">
+            <figure>
+              <picture>
+                <source srcset="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&q=80 400w"
+                        sizes="(min-width: 1200px) 280px, (min-width: 768px) 22vw, 45vw">
+                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&q=80"
+                     alt="Portrait de Lucas Bernard, Stratège de Marque" width="400" height="400" loading="lazy">
+              </picture>
+              <figcaption>
+                <cite>Lucas Bernard</cite>
+                <span class="role">Stratège de Marque</span>
+                <p>Architecte de positionnements et gardien de la cohérence stratégique.</p>
+              </figcaption>
+            </figure>
+          </article>
+
+          <article class="team-card">
+            <figure>
+              <picture>
+                <source srcset="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop&q=80 400w"
+                        sizes="(min-width: 1200px) 280px, (min-width: 768px) 22vw, 45vw">
+                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop&q=80"
+                     alt="Portrait de Inès Dupont, Designer Web" width="400" height="400" loading="lazy">
+              </picture>
+              <figcaption>
+                <cite>Inès Dupont</cite>
+                <span class="role">Designer UX/UI</span>
+                <p>Créatrice d'interfaces qui allient beauté, accessibilité et performance.</p>
+              </figcaption>
+            </figure>
+          </article>
+
+          <article class="team-card">
+            <figure>
+              <picture>
+                <source srcset="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop&q=80 400w"
+                        sizes="(min-width: 1200px) 280px, (min-width: 768px) 22vw, 45vw">
+                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop&q=80"
+                     alt="Portrait de Maxime Girard, Motion Designer" width="400" height="400" loading="lazy">
+              </picture>
+              <figcaption>
+                <cite>Maxime Girard</cite>
+                <span class="role">Motion Designer</span>
+                <p>Donner vie aux marques par le mouvement, l'animation et la vidéo.</p>
+              </figcaption>
+            </figure>
+          </article>
+
+          <article class="team-card">
+            <figure>
+              <picture>
+                <source srcset="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=400&fit=crop&q=80 400w"
+                        sizes="(min-width: 1200px) 280px, (min-width: 768px) 22vw, 45vw">
+                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=400&fit=crop&q=80"
+                     alt="Portrait de Marie Laurent, Designer Packagind" width="400" height="400" loading="lazy">
+              </picture>
+              <figcaption>
+                <cite>Marie Laurent</cite>
+                <span class="role">Designer Packaging</span>
+                <p>Experte en design matériel, impression luxe et expérience d'unboxing.</p>
+              </figcaption>
+            </figure>
+          </article>
+
+          <article class="team-card">
+            <figure>
+              <picture>
+                <source srcset="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=400&fit=crop&q=80 400w"
+                        sizes="(min-width: 1200px) 280px, (min-width: 768px) 22vw, 45vw">
+                <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=400&fit=crop&q=80"
+                     alt="Portrait de Hugo Petit, Photographe" width="400" height="400" loading="lazy">
+              </picture>
+              <figcaption>
+                <cite>Hugo Petit</cite>
+                <span class="role">Directeur Photo</span>
+                <p>Photographe et réalisateur, il capture l'essence visuelle des marques.</p>
+              </figcaption>
+            </figure>
+          </article>
+
+          <article class="team-card">
+            <figure>
+              <picture>
+                <source srcset="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=400&h=400&fit=crop&q=80 400w"
+                        sizes="(min-width: 1200px) 280px, (min-width: 768px) 22vw, 45vw">
+                <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=400&h=400&fit=crop&q=80"
+                     alt="Portrait de Emma Roux, Cheffe de Projet" width="400" height="400" loading="lazy">
+              </picture>
+              <figcaption>
+                <cite>Emma Roux</cite>
+                <span class="role">Cheffe de Projet</span>
+                <p>L'architecte invisible qui orchestre chaque projet avec précision et sérénité.</p>
+              </figcaption>
+            </figure>
+          </article>
+
+          <article class="team-card">
+            <figure>
+              <picture>
+                <source srcset="https://images.unsplash.com/photo-1463453091185-61582044d556?w=400&h=400&fit=crop&q=80 400w"
+                        sizes="(min-width: 1200px) 280px, (min-width: 768px) 22vw, 45vw">
+                <img src="https://images.unsplash.com/photo-1463453091185-61582044d556?w=400&h=400&fit=crop&q=80"
+                     alt="Portrait de Noah Martin, Développeur Front-End" width="400" height="400" loading="lazy">
+              </picture>
+              <figcaption>
+                <cite>Noah Martin</cite>
+                <span class="role">Développeur Front-End</span>
+                <p>Traduit les maquettes les plus ambitieuses en expériences web fluides.</p>
+              </figcaption>
+            </figure>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Partners ── -->
+    <section class="partners">
+      <div class="container">
+        <div class="section-header section-header--center">
+          <p class="label" style="color:var(--gold-light)">Ils nous font confiance</p>
+          <div class="divider divider--center"></div>
+          <h2 style="color:var(--cream)">Nos Clients</h2>
+        </div>
+        <div class="partners-logos" aria-label="Liste des clients partenaires">
+          <span>Hermès</span>
+          <span>Cartier</span>
+          <span>Chanel</span>
+          <span>L'Oréal</span>
+          <span>LVMH</span>
+          <span>Kering</span>
+          <span>Air France</span>
+          <span>BNP Paribas</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Awards Timeline ── -->
+    <section class="section awards">
+      <div class="container">
+        <div class="section-header">
+          <p class="label">Nos Distinctions</p>
+          <div class="divider"></div>
+          <h2>Prix & Reconnaissances</h2>
+        </div>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="year">2024</div>
+            <h3>Red Dot Design Award — Or</h3>
+            <p>Récompensé pour l'identité visuelle de Maison Rivière, catégorie "Brand Identity Excellence".</p>
+          </div>
+          <div class="timeline-item">
+            <div class="year">2023</div>
+            <h3>Cannes Lions — Bronze</h3>
+            <p>Campagne de lancement pour Épure Studio reconnue dans la catégorie Design Communication.</p>
+          </div>
+          <div class="timeline-item">
+            <div class="year">2022</div>
+            <h3>D&AD Pencil — Yellow</h3>
+            <p>System design et packaging premium pour la collection capsule Lumière × Cartier.</p>
+          </div>
+          <div class="timeline-item">
+            <div class="year">2021</div>
+            <h3>Meilleure Agence de l'Année — ADC France</h3>
+            <p>Désignés Meilleure Agence Indépendante par l'Art Directors Club de France.</p>
+          </div>
+          <div class="timeline-item">
+            <div class="year">2019</div>
+            <h3>Grand Prix du Design — Paris</h3>
+            <p>Identité de marque complète pour la Fondation Nationale des Arts, récompensée pour son impact culturel.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ── Footer ── -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a href="index.html" class="nav__logo">Studio<span style="color:var(--gold)">.</span>Lumière</a>
+          <p>Agence de design parisienne créant des identités visuelles d'exception depuis 2010.</p>
+        </div>
+        <nav class="footer__col" aria-label="Plan du site">
+          <h4>Plan du Site</h4>
+          <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="about.html">À Propos</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="gallery.html">Galerie</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+        <nav class="footer__col" aria-label="Services">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="services.html#identite">Identité Visuelle</a></li>
+            <li><a href="services.html#strategie">Stratégie de Marque</a></li>
+            <li><a href="services.html#editorial">Design Éditorial</a></li>
+            <li><a href="services.html#web">Web & Digital</a></li>
+          </ul>
+        </nav>
+        <address class="footer__col" style="font-style:normal">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="mailto:bonjour@studiolumiere.fr">bonjour@studiolumiere.fr</a></li>
+            <li><a href="tel:+33140123456">+33 1 40 12 34 56</a></li>
+            <li><span style="color:var(--gray-mid)">12 rue de Rivoli, 75001 Paris</span></li>
+          </ul>
+        </address>
+      </div>
+      <div class="footer__bottom">
+        <p>© 2025 Studio Lumière. Tous droits réservés.</p>
+        <nav class="footer__legal" aria-label="Mentions légales">
+          <a href="#">Mentions Légales</a>
+          <a href="#">Politique de Confidentialité</a>
+          <a href="#">CGU</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const nav = document.getElementById('mainNav');
+    window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 50));
+    document.getElementById('navBurger').addEventListener('click', function() {
+      const open = document.getElementById('navLinks').classList.toggle('open');
+      this.setAttribute('aria-expanded', open);
+    });
+  </script>
+</body>
+</html>
