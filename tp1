@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ikram Kanbouch – CV Portfolio</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+ 
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      color: #222;
+    }
+ 
+    /* HEADER */
+    header {
+      background: #1a1a2e;
+      color: white;
+      padding: 30px 20px;
+      text-align: center;
+    }
+    header h1 { font-size: 2rem; margin-bottom: 5px; }
+    header h2 { font-size: 1rem; color: #aaa; font-weight: normal; }
+ 
+    /* NAVIGATION */
+    nav {
+      background: #16213e;
+      text-align: center;
+      padding: 12px;
+    }
+    nav a {
+      color: #00d4ff;
+      text-decoration: none;
+      margin: 0 15px;
+      font-size: 0.95rem;
+    }
+    nav a:hover { text-decoration: underline; }
+ 
+    /* MAIN */
+    main {
+      max-width: 900px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+ 
+    section {
+      background: white;
+      border-radius: 8px;
+      padding: 30px;
+      margin-bottom: 25px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    }
+ 
+    section h3 {
+      font-size: 1.3rem;
+      color: #1a1a2e;
+      border-bottom: 2px solid #00d4ff;
+      padding-bottom: 8px;
+      margin-bottom: 20px;
+    }
+ 
+    /* À PROPOS */
+    .apropos-contenu {
+      display: flex;
+      gap: 25px;
+      align-items: flex-start;
+    }
+    .apropos-contenu img {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      border: 3px solid #00d4ff;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+ 
+    /* Placeholder photo */
+    .photo-placeholder {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      border: 3px solid #00d4ff;
+      background: #e8f4ff;
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: #90b8d8;
+      font-size: 0.72rem;
+      text-align: center;
+      gap: 6px;
+    }
+    .photo-placeholder svg { opacity: 0.5; }
+ 
+    .apropos-contenu p { line-height: 1.7; color: #444; margin-bottom: 8px; }
+ 
+    /* COMPÉTENCES */
+    .competences-grille {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .competences-grille h4 {
+      color: #1a1a2e;
+      margin-bottom: 8px;
+      font-size: 0.95rem;
+    }
+    ul, ol { padding-left: 20px; }
+    li { margin-bottom: 5px; line-height: 1.6; color: #444; }
+ 
+    /* TABLEAU */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+    th {
+      background: #1a1a2e;
+      color: white;
+      padding: 10px 14px;
+      text-align: left;
+    }
+    td {
+      padding: 10px 14px;
+      border-bottom: 1px solid #eee;
+      vertical-align: top;
+    }
+    tr:hover td { background: #f9f9f9; }
+ 
+    /* RÉSEAUX SOCIAUX */
+    .reseaux { display: flex; gap: 15px; flex-wrap: wrap; }
+    .reseaux a {
+      display: inline-block;
+      background: #1a1a2e;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: background 0.2s;
+    }
+    .reseaux a:hover { background: #00d4ff; color: #1a1a2e; }
+ 
+    /* FOOTER */
+    footer {
+      background: #1a1a2e;
+      color: #aaa;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.85rem;
+    }
+    footer a { color: #00d4ff; text-decoration: none; }
+  </style>
+</head>
+<body>
+ 
+<!-- HEADER -->
+<header>
+  <h1>Ikram Kanbouch</h1>
+  <h2>Étudiante 1ère année Cycle Ingénieur – Génie Logiciel &amp; Systèmes d'Information Distribués – ENSET Mohammadia</h2>
+</header>
+ 
+<!-- NAVIGATION -->
+<nav aria-label="Navigation principale">
+  <a href="#apropos">À propos</a>
+  <a href="#competences">Compétences</a>
+  <a href="#formations">Formations</a>
+  <a href="#contact">Contact</a>
+</nav>
+ 
+<!-- MAIN -->
+<main id="main">
+ 
+  <!-- À propos -->
+  <section id="apropos">
+    <h3>À propos</h3>
+    <div class="apropos-contenu">
+ 
+      <!--
+        ════════════════════════════════════════════════════
+        PHOTO : remplacez ce bloc par votre image dès que
+        vous me l'envoyez. Exemple :
+        <img src="ikram.jpg" alt="Photo de profil d'Ikram Kanbouch" />
+        ════════════════════════════════════════════════════
+      -->
+      <div class="photo-placeholder" role="img" aria-label="Photo de profil d'Ikram Kanbouch — à venir">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#90b8d8" stroke-width="1.2" aria-hidden="true">
+          <circle cx="12" cy="8" r="4"/>
+          <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+        </svg>
+        📸 Photo<br/>à venir
+      </div>
+ 
+      <div>
+        <p>Bonjour ! Je suis <strong>Ikram Kanbouch</strong>, étudiante en 1ère année du cycle ingénieur en <strong>Génie Logiciel &amp; Systèmes d'Information Distribués</strong> à l'ENSET de Mohammadia.</p>
+        <p>Après un baccalauréat en Sciences Physiques obtenu en 2023 et deux années de classes préparatoires filière PSI, je suis passionnée par la programmation, les mathématiques et la conception de systèmes informatiques.</p>
+        <p>📧 <a href="mailto:kanbouchikram@gmail.com" style="color:#00d4ff;">kanbouchikram@gmail.com</a> &nbsp;|&nbsp; 📍 Mohammadia, Maroc</p>
+      </div>
+    </div>
+  </section>
+ 
+  <!-- Compétences -->
+  <section id="competences">
+    <h3>Compétences</h3>
+    <div class="competences-grille">
+ 
+      <div>
+        <h4>Compétences techniques</h4>
+        <ul>
+          <li>Programmation en Python</li>
+          <li>Langage C</li>
+          <li>HTML5 &amp; CSS3</li>
+          <li>JavaScript</li>
+          <li>Algorithmique &amp; Structures de données</li>
+          <li>Mathématiques avancées</li>
+          <li>Git &amp; GitHub</li>
+          <li>Linux / Bash (initiation)</li>
+          <li>SQL / Bases de données</li>
+        </ul>
+      </div>
+ 
+      <div>
+        <h4>Compétences humaines &amp; transversales</h4>
+        <ol>
+          <li>Travail en équipe</li>
+          <li>Rigueur &amp; méthode (CPGE)</li>
+          <li>Capacité d'analyse et de synthèse</li>
+          <li>Résolution de problèmes complexes</li>
+          <li>Communication claire</li>
+          <li>Autonomie &amp; initiative</li>
+          <li>Apprentissage rapide</li>
+          <li>Gestion du temps</li>
+          <li>Langues : Arabe (natif), Français (courant), Anglais (intermédiaire)</li>
+        </ol>
+      </div>
+ 
+    </div>
+  </section>
+ 
+  <!-- Formations -->
+  <section id="formations">
+    <h3>Formations</h3>
+    <table>
+      <caption style="text-align:left; font-size:0.8rem; color:#888; padding-bottom:8px;">
+        Parcours scolaire d'Ikram Kanbouch
+      </caption>
+      <thead>
+        <tr>
+          <th scope="col">Période</th>
+          <th scope="col">Intitulé</th>
+          <th scope="col">Établissement</th>
+          <th scope="col">Type</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>2025 – présent</td>
+          <td>1ère année Cycle Ingénieur – Génie Logiciel &amp; Systèmes d'Information Distribués</td>
+          <td>ENSET Mohammadia</td>
+          <td>Formation</td>
+        </tr>
+        <tr>
+          <td>2023 – 2025</td>
+          <td>Classes Préparatoires aux Grandes Écoles – Filière PSI (Physique &amp; Sciences de l'Ingénieur)</td>
+          <td>CPGE – Maroc</td>
+          <td>Formation</td>
+        </tr>
+        <tr>
+          <td>2023</td>
+          <td>Baccalauréat Sciences Physiques</td>
+          <td>Lycée – Maroc</td>
+          <td>Diplôme</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+ 
+  <!-- Contact -->
+  <section id="contact">
+    <h3>Contact &amp; Réseaux sociaux</h3>
+    <p style="margin-bottom: 15px; color: #444;">Retrouvez-moi sur :</p>
+    <div class="reseaux">
+      <a href="https://github.com/kanbouch-ikram" target="_blank" rel="noopener noreferrer"
+         aria-label="Profil GitHub d'Ikram Kanbouch (nouvel onglet)">
+        🐙 GitHub
+      </a>
+      <a href="https://www.linkedin.com/in/ikramknb" target="_blank" rel="noopener noreferrer"
+         aria-label="Profil LinkedIn d'Ikram Kanbouch (nouvel onglet)">
+        💼 LinkedIn
+      </a>
+      <a href="mailto:kanbouchikram@gmail.com" rel="noopener noreferrer"
+         aria-label="Envoyer un e-mail à Ikram Kanbouch sur Gmail">
+        ✉️ Gmail
+      </a>
+    </div>
+  </section>
+ 
+</main>
+ 
+<!-- FOOTER -->
+<footer>
+  <p>
+    © <time datetime="2025">2025</time> Ikram Kanbouch –
+    <a href="https://validator.w3.org" target="_blank" rel="noopener noreferrer">Validé W3C</a>
+  </p>
+</footer>
+ 
+</body>
+</html>
