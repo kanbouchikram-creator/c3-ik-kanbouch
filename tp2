@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Formulaire d'inscription avec validation HTML5" />
+  <title>Formulaire d'inscription</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+ 
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      color: #333;
+      font-size: 15px;
+    }
+ 
+    /* ── HEADER ── */
+    header {
+      background: #2c3e50;
+      color: #fff;
+      padding: 28px 20px;
+      text-align: center;
+    }
+    header h1 { font-size: 1.7rem; margin-bottom: 5px; }
+    header p  { font-size: 0.9rem; color: #bdc3c7; }
+ 
+    /* ── MAIN ── */
+    main {
+      max-width: 750px;
+      margin: 30px auto;
+      padding: 0 16px 40px;
+    }
+ 
+    /* ── FIELDSET ── */
+    fieldset {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      padding: 22px 24px;
+      margin-bottom: 22px;
+    }
+    legend {
+      font-size: 1rem;
+      font-weight: bold;
+      color: #2c3e50;
+      background: #fff;
+      padding: 0 8px;
+      border-left: 4px solid #3498db;
+      padding-left: 10px;
+    }
+ 
+    /* ── CHAMPS ── */
+    .champ {
+      margin-top: 16px;
+    }
+    label {
+      display: block;
+      font-size: 0.88rem;
+      color: #555;
+      margin-bottom: 5px;
+    }
+    label .req {
+      color: #e74c3c;
+      margin-left: 2px;
+    }
+ 
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="date"],
+    input[type="password"],
+    input[type="file"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 9px 12px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      color: #333;
+      background: #fafafa;
+      transition: border-color 0.2s;
+    }
+    input:focus,
+    select:focus,
+    textarea:focus {
+      outline: none;
+      border-color: #3498db;
+      background: #fff;
+    }
+ 
+    /* Validation CSS */
+    input:valid   { border-color: #27ae60; }
+    input:invalid { border-color: #ccc;    }
+    input:user-invalid { border-color: #e74c3c; }
+ 
+    /* ── GRILLE 2 colonnes ── */
+    .deux-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0 20px;
+    }
+ 
+    /* ── RADIO & CHECKBOX ── */
+    .options { display: flex; flex-wrap: wrap; gap: 10px 22px; margin-top: 4px; }
+    .options label {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.88rem;
+      color: #444;
+      cursor: pointer;
+      margin-bottom: 0;
+    }
+    .options input[type="radio"],
+    .options input[type="checkbox"] {
+      width: 15px;
+      height: 15px;
+      accent-color: #3498db;
+      cursor: pointer;
+    }
+ 
+    /* CGU checkbox */
+    .cgu {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      margin-top: 6px;
+    }
+    .cgu input { width: 16px; height: 16px; margin-top: 2px; accent-color: #3498db; flex-shrink: 0; }
+    .cgu label { font-size: 0.88rem; color: #444; margin-bottom: 0; }
+    .cgu a { color: #3498db; text-decoration: none; }
+    .cgu a:hover { text-decoration: underline; }
+ 
+    /* ── TEXTAREA ── */
+    textarea {
+      resize: vertical;
+      min-height: 90px;
+      font-family: Arial, sans-serif;
+    }
+    .compteur {
+      font-size: 0.75rem;
+      color: #999;
+      text-align: right;
+      margin-top: 3px;
+    }
+ 
+    /* ── HINT ── */
+    .hint {
+      font-size: 0.75rem;
+      color: #888;
+      margin-top: 4px;
+    }
+ 
+    /* ── MESSAGE ERREUR PERSONNALISÉ ── */
+    .msg-erreur {
+      font-size: 0.76rem;
+      color: #e74c3c;
+      margin-top: 4px;
+      display: none;
+    }
+    input:user-invalid ~ .msg-erreur,
+    select:user-invalid ~ .msg-erreur,
+    textarea:user-invalid ~ .msg-erreur {
+      display: block;
+    }
+ 
+    /* ── BOUTONS ── */
+    .boutons {
+      display: flex;
+      gap: 12px;
+      justify-content: flex-end;
+      margin-top: 10px;
+    }
+    button[type="submit"] {
+      background: #2c3e50;
+      color: #fff;
+      border: none;
+      padding: 11px 28px;
+      border-radius: 5px;
+      font-size: 0.92rem;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    button[type="submit"]:hover { background: #3498db; }
+ 
+    button[type="reset"] {
+      background: #ecf0f1;
+      color: #555;
+      border: 1px solid #ccc;
+      padding: 11px 22px;
+      border-radius: 5px;
+      font-size: 0.92rem;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    button[type="reset"]:hover { background: #dde1e3; }
+ 
+    /* ── MESSAGE SUCCÈS ── */
+    #msg-succes {
+      display: none;
+      background: #eafaf1;
+      border: 1px solid #27ae60;
+      color: #1e8449;
+      border-radius: 5px;
+      padding: 14px 18px;
+      margin-top: 18px;
+      font-size: 0.9rem;
+      text-align: center;
+    }
+ 
+    /* ── FOOTER ── */
+    footer {
+      background: #2c3e50;
+      color: #bdc3c7;
+      text-align: center;
+      padding: 16px;
+      font-size: 0.82rem;
+    }
+ 
+    /* ── RESPONSIVE ── */
+    @media (max-width: 520px) {
+      .deux-col { grid-template-columns: 1fr; }
+      .boutons  { flex-direction: column; }
+      button    { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+ 
+<!-- HEADER -->
+<header>
+  <h1>Formulaire d'inscription</h1>
+  <p>Tous les champs marqués <span style="color:#e74c3c">*</span> sont obligatoires</p>
+</header>
+ 
+<!-- MAIN -->
+<main>
+  <form id="form-inscription" action="#" method="post" enctype="multipart/form-data" novalidate>
+ 
+    <!-- ═══════════════════════════════════════
+         1. INFORMATIONS PERSONNELLES
+    ═══════════════════════════════════════ -->
+    <fieldset>
+      <legend>👤 Informations personnelles</legend>
+ 
+      <div class="deux-col">
+        <!-- Nom -->
+        <div class="champ">
+          <label for="nom">Nom <span class="req">*</span></label>
+          <input
+            type="text"
+            id="nom"
+            name="nom"
+            required
+            minlength="2"
+            maxlength="50"
+            autocomplete="family-name"
+            placeholder="Ex : Kanbouch"
+            pattern="[A-Za-zÀ-ÖØ-öø-ÿ\s\-]+"
+          />
+          <span class="msg-erreur">Veuillez entrer un nom valide (lettres uniquement).</span>
+        </div>
+ 
+        <!-- Prénom -->
+        <div class="champ">
+          <label for="prenom">Prénom <span class="req">*</span></label>
+          <input
+            type="text"
+            id="prenom"
+            name="prenom"
+            required
+            minlength="2"
+            maxlength="50"
+            autocomplete="given-name"
+            placeholder="Ex : Ikram"
+            pattern="[A-Za-zÀ-ÖØ-öø-ÿ\s\-]+"
+          />
+          <span class="msg-erreur">Veuillez entrer un prénom valide (lettres uniquement).</span>
+        </div>
+      </div>
+ 
+      <!-- Email -->
+      <div class="champ">
+        <label for="email">Adresse e-mail <span class="req">*</span></label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          required
+          autocomplete="email"
+          placeholder="exemple@gmail.com"
+        />
+        <span class="msg-erreur">Veuillez entrer une adresse e-mail valide (ex : nom@domaine.com).</span>
+      </div>
+ 
+      <!-- Téléphone -->
+      <div class="champ">
+        <label for="telephone">Téléphone <span class="req">*</span></label>
+        <input
+          type="tel"
+          id="telephone"
+          name="telephone"
+          required
+          autocomplete="tel"
+          placeholder="Ex : 0612345678"
+          pattern="(0|\+212)[5-7][0-9]{8}"
+        />
+        <p class="hint">Format marocain : 06XXXXXXXX, 07XXXXXXXX ou +212XXXXXXXXX</p>
+        <span class="msg-erreur">Numéro invalide. Format attendu : 06XXXXXXXX ou +212XXXXXXXXX.</span>
+      </div>
+ 
+      <!-- Date de naissance -->
+      <div class="champ">
+        <label for="ddn">Date de naissance <span class="req">*</span></label>
+        <input
+          type="date"
+          id="ddn"
+          name="date_naissance"
+          required
+          autocomplete="bday"
+        />
+        <p class="hint">Vous devez avoir au moins 18 ans pour vous inscrire.</p>
+        <span class="msg-erreur" id="err-ddn">Vous devez avoir au moins 18 ans.</span>
+      </div>
+ 
+      <!-- Genre -->
+      <div class="champ">
+        <label>Genre <span class="req">*</span></label>
+        <div class="options" role="radiogroup" aria-label="Sélection du genre">
+          <label>
+            <input type="radio" name="genre" value="femme" required />
+            Femme
+          </label>
+          <label>
+            <input type="radio" name="genre" value="homme" />
+            Homme
+          </label>
+          <label>
+            <input type="radio" name="genre" value="autre" />
+            Autre / Non précisé
+          </label>
+        </div>
+        <span class="msg-erreur" id="err-genre" style="display:none;">Veuillez sélectionner votre genre.</span>
+      </div>
+ 
+    </fieldset>
+ 
+    <!-- ═══════════════════════════════════════
+         2. SÉCURITÉ
+    ═══════════════════════════════════════ -->
+    <fieldset>
+      <legend>🔒 Mot de passe</legend>
+ 
+      <div class="deux-col">
+        <!-- Mot de passe -->
+        <div class="champ">
+          <label for="mdp">Mot de passe <span class="req">*</span></label>
+          <input
+            type="password"
+            id="mdp"
+            name="mot_de_passe"
+            required
+            minlength="8"
+            autocomplete="new-password"
+            placeholder="Mot de passe"
+            pattern="(?=.*[A-Z])(?=.*[0-9]).{8,}"
+          />
+          <p class="hint">Min. 8 caractères, 1 majuscule, 1 chiffre.</p>
+          <span class="msg-erreur">Mot de passe trop faible. Ex : Ikram2025</span>
+        </div>
+ 
+        <!-- Confirmation -->
+        <div class="champ">
+          <label for="mdp2">Confirmer le mot de passe <span class="req">*</span></label>
+          <input
+            type="password"
+            id="mdp2"
+            name="confirmation_mdp"
+            required
+            minlength="8"
+            autocomplete="new-password"
+            placeholder="Répétez le mot de passe"
+          />
+          <span class="msg-erreur" id="err-mdp2">Les mots de passe ne correspondent pas.</span>
+        </div>
+      </div>
+ 
+    </fieldset>
+ 
+    <!-- ═══════════════════════════════════════
+         3. LOCALISATION
+    ═══════════════════════════════════════ -->
+    <fieldset>
+      <legend>🌍 Localisation</legend>
+ 
+      <!-- Pays (select + datalist) -->
+      <div class="champ">
+        <label for="pays">Pays <span class="req">*</span></label>
+        <input
+          type="text"
+          id="pays"
+          name="pays"
+          list="liste-pays"
+          required
+          autocomplete="country-name"
+          placeholder="Tapez ou choisissez votre pays..."
+        />
+        <datalist id="liste-pays">
+          <option value="Maroc"></option>
+          <option value="France"></option>
+          <option value="Algérie"></option>
+          <option value="Tunisie"></option>
+          <option value="Égypte"></option>
+          <option value="Espagne"></option>
+          <option value="Belgique"></option>
+          <option value="Canada"></option>
+          <option value="États-Unis"></option>
+          <option value="Sénégal"></option>
+          <option value="Côte d'Ivoire"></option>
+          <option value="Allemagne"></option>
+          <option value="Italie"></option>
+          <option value="Portugal"></option>
+          <option value="Pays-Bas"></option>
+          <option value="Suisse"></option>
+          <option value="Arabie Saoudite"></option>
+          <option value="Émirats arabes unis"></option>
+          <option value="Qatar"></option>
+        </datalist>
+        <span class="msg-erreur">Veuillez indiquer votre pays.</span>
+      </div>
+ 
+      <!-- Ville -->
+      <div class="champ">
+        <label for="ville">Ville</label>
+        <input
+          type="text"
+          id="ville"
+          name="ville"
+          autocomplete="address-level2"
+          placeholder="Ex : Mohammadia"
+          maxlength="100"
+        />
+      </div>
+ 
+    </fieldset>
+ 
+    <!-- ═══════════════════════════════════════
+         4. PROFIL
+    ═══════════════════════════════════════ -->
+    <fieldset>
+      <legend>📋 Profil</legend>
+ 
+      <!-- Photo de profil -->
+      <div class="champ">
+        <label for="photo">Photo de profil</label>
+        <input
+          type="file"
+          id="photo"
+          name="photo"
+          accept="image/jpeg, image/png, image/webp"
+        />
+        <p class="hint">Formats acceptés : JPG, PNG, WEBP. Taille max recommandée : 2 Mo.</p>
+      </div>
+ 
+      <!-- Biographie -->
+      <div class="champ">
+        <label for="bio">Biographie</label>
+        <textarea
+          id="bio"
+          name="biographie"
+          maxlength="300"
+          placeholder="Présentez-vous en quelques mots..."
+          oninput="document.getElementById('cpt-bio').textContent = this.value.length + ' / 300 caractères'"
+        ></textarea>
+        <p class="compteur" id="cpt-bio">0 / 300 caractères</p>
+      </div>
+ 
+      <!-- Centres d'intérêt -->
+      <div class="champ">
+        <label>Centres d'intérêt</label>
+        <div class="options" role="group" aria-label="Sélection des centres d'intérêt">
+          <label><input type="checkbox" name="interets" value="programmation" /> Programmation</label>
+          <label><input type="checkbox" name="interets" value="mathematiques" /> Mathématiques</label>
+          <label><input type="checkbox" name="interets" value="ia" /> Intelligence Artificielle</label>
+          <label><input type="checkbox" name="interets" value="web" /> Développement Web</label>
+          <label><input type="checkbox" name="interets" value="cybersecurite" /> Cybersécurité</label>
+          <label><input type="checkbox" name="interets" value="reseaux" /> Réseaux</label>
+          <label><input type="checkbox" name="interets" value="lecture" /> Lecture</label>
+          <label><input type="checkbox" name="interets" value="sport" /> Sport</label>
+          <label><input type="checkbox" name="interets" value="musique" /> Musique</label>
+        </div>
+      </div>
+ 
+    </fieldset>
+ 
+    <!-- ═══════════════════════════════════════
+         5. CGU + BOUTONS
+    ═══════════════════════════════════════ -->
+    <fieldset>
+      <legend>✅ Conditions d'utilisation</legend>
+ 
+      <div class="cgu">
+        <input
+          type="checkbox"
+          id="cgu"
+          name="cgu"
+          required
+        />
+        <label for="cgu">
+          J'ai lu et j'accepte les
+          <a href="#" target="_blank" rel="noopener noreferrer">Conditions Générales d'Utilisation</a>
+          et la
+          <a href="#" target="_blank" rel="noopener noreferrer">Politique de confidentialité</a>.
+          <span class="req">*</span>
+        </label>
+      </div>
+      <span class="msg-erreur" id="err-cgu" style="display:none; margin-top:6px;">
+        Vous devez accepter les CGU pour vous inscrire.
+      </span>
+ 
+      <div class="cgu" style="margin-top:12px;">
+        <input type="checkbox" id="newsletter" name="newsletter" />
+        <label for="newsletter">Je souhaite recevoir les actualités et offres par e-mail (facultatif).</label>
+      </div>
+ 
+      <div class="boutons">
+        <button type="reset" onclick="reinitialiser()">Réinitialiser</button>
+        <button type="submit">S'inscrire</button>
+      </div>
+ 
+    </fieldset>
+ 
+    <!-- Message de succès -->
+    <div id="msg-succes" role="alert" aria-live="polite">
+      ✅ Inscription réussie ! Bienvenue, <strong id="prenom-succes"></strong>. Un e-mail de confirmation vous a été envoyé.
+    </div>
+ 
+  </form>
+</main>
+ 
+<!-- FOOTER -->
+<footer>
+  <p>© <time datetime="2025">2025</time> — Formulaire d'inscription HTML5 · Validation côté client</p>
+</footer>
+ 
+<script>
+  /* ─── Date max : 18 ans avant aujourd'hui ─── */
+  (function() {
+    const ddn = document.getElementById('ddn');
+    const today = new Date();
+    const max = new Date(today.getFullYear() - 18, today.getMonth(), today.getDate());
+    ddn.max = max.toISOString().split('T')[0];
+    // Optionnel : date min raisonnable (120 ans)
+    const min = new Date(today.getFullYear() - 120, today.getMonth(), today.getDate());
+    ddn.min = min.toISOString().split('T')[0];
+  })();
+ 
+  /* ─── Vérification confirmation mot de passe ─── */
+  document.getElementById('mdp2').addEventListener('input', function() {
+    const mdp  = document.getElementById('mdp').value;
+    const msg  = document.getElementById('err-mdp2');
+    if (this.value && this.value !== mdp) {
+      this.setCustomValidity('Les mots de passe ne correspondent pas.');
+      msg.style.display = 'block';
+    } else {
+      this.setCustomValidity('');
+      msg.style.display = 'none';
+    }
+  });
+  document.getElementById('mdp').addEventListener('input', function() {
+    const mdp2 = document.getElementById('mdp2');
+    const msg  = document.getElementById('err-mdp2');
+    if (mdp2.value && mdp2.value !== this.value) {
+      mdp2.setCustomValidity('Les mots de passe ne correspondent pas.');
+      msg.style.display = 'block';
+    } else {
+      mdp2.setCustomValidity('');
+      msg.style.display = 'none';
+    }
+  });
+ 
+  /* ─── Soumission du formulaire ─── */
+  document.getElementById('form-inscription').addEventListener('submit', function(e) {
+    e.preventDefault();
+    let ok = true;
+ 
+    /* Vérification âge 18 ans */
+    const ddn = document.getElementById('ddn');
+    const errDdn = document.getElementById('err-ddn');
+    if (ddn.value) {
+      const nais = new Date(ddn.value);
+      const ageLimite = new Date();
+      ageLimite.setFullYear(ageLimite.getFullYear() - 18);
+      if (nais > ageLimite) {
+        ddn.setCustomValidity('Vous devez avoir au moins 18 ans.');
+        errDdn.style.display = 'block';
+        ok = false;
+      } else {
+        ddn.setCustomValidity('');
+        errDdn.style.display = 'none';
+      }
+    }
+ 
+    /* Vérification genre obligatoire */
+    const genres = document.querySelectorAll('input[name="genre"]');
+    const errGenre = document.getElementById('err-genre');
+    const genreChoisi = Array.from(genres).some(r => r.checked);
+    if (!genreChoisi) {
+      errGenre.style.display = 'block';
+      ok = false;
+    } else {
+      errGenre.style.display = 'none';
+    }
+ 
+    /* Vérification CGU */
+    const cgu = document.getElementById('cgu');
+    const errCgu = document.getElementById('err-cgu');
+    if (!cgu.checked) {
+      errCgu.style.display = 'block';
+      ok = false;
+    } else {
+      errCgu.style.display = 'none';
+    }
+ 
+    /* Validation HTML5 native */
+    if (!this.checkValidity()) {
+      this.reportValidity();
+      ok = false;
+    }
+ 
+    /* Succès */
+    if (ok && this.checkValidity()) {
+      const prenom = document.getElementById('prenom').value;
+      document.getElementById('prenom-succes').textContent = prenom;
+      document.getElementById('msg-succes').style.display = 'block';
+      this.reset();
+      document.getElementById('cpt-bio').textContent = '0 / 300 caractères';
+      document.getElementById('msg-succes').scrollIntoView({ behavior: 'smooth' });
+    }
+  });
+ 
+  /* ─── Réinitialisation ─── */
+  function reinitialiser() {
+    document.getElementById('cpt-bio').textContent = '0 / 300 caractères';
+    document.getElementById('msg-succes').style.display = 'none';
+    document.getElementById('err-genre').style.display = 'none';
+    document.getElementById('err-cgu').style.display = 'none';
+    document.getElementById('err-ddn').style.display = 'none';
+    document.getElementById('err-mdp2').style.display = 'none';
+  }
+</script>
+ 
+</body>
+</html>
