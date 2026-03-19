@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galerie & Portfolio — Forma Studio</title>
+  <meta name="description" content="Découvrez le portfolio de Forma Studio : projets de branding, design numérique, direction artistique et motion design pour des marques ambitieuses.">
+  <meta name="keywords" content="portfolio design, galerie créative, branding projects, UX design portfolio, agence Paris">
+  <meta name="author" content="Forma Studio">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.formastudio.fr/pages/gallery.html">
+  <meta property="og:title" content="Galerie & Portfolio — Forma Studio">
+  <meta property="og:description" content="Portfolio de projets créatifs — branding, digital, direction artistique et motion design.">
+  <meta property="og:image" content="https://www.formastudio.fr/images/og-gallery.jpg">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:site_name" content="Forma Studio">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Galerie & Portfolio — Forma Studio">
+
+  <link rel="canonical" href="https://www.formastudio.fr/pages/gallery.html">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%230d0d0d'/><text y='24' x='4' font-size='22' fill='%23c8410a' font-family='Georgia' font-style='italic' font-weight='900'>F</text></svg>">
+
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .gallery-filter {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 2.5rem;
+    }
+    .filter-btn {
+      font-family: var(--font-cond);
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.5rem 1.2rem;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--mid);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: var(--ink);
+      color: var(--paper);
+      border-color: var(--ink);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" role="navigation" aria-label="Navigation principale">
+    <div class="container nav-inner">
+      <a href="../index.html" class="nav-logo" aria-label="Forma Studio — Accueil">Forma<span>.</span></a>
+      <ul class="nav-links" role="list">
+        <li><a href="../index.html" class="nav-link">Accueil</a></li>
+        <li><a href="about.html" class="nav-link">À propos</a></li>
+        <li><a href="services.html" class="nav-link">Services</a></li>
+        <li><a href="gallery.html" class="nav-link">Galerie</a></li>
+        <li><a href="contact.html" class="nav-link nav-cta">
+          <span class="btn btn-primary"><span>Contact</span></span>
+        </a></li>
+      </ul>
+      <button class="hamburger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <nav class="mobile-nav" aria-label="Navigation mobile">
+    <a href="../index.html">Accueil</a>
+    <a href="about.html">À propos</a>
+    <a href="services.html">Services</a>
+    <a href="gallery.html">Galerie</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <main>
+    <!-- PAGE HEADER -->
+    <header class="page-header" data-text="Portfolio" aria-labelledby="page-title">
+      <div class="container">
+        <p class="breadcrumb"><a href="../index.html">Accueil</a> / Galerie</p>
+        <div class="section-tag"><span>Notre portfolio</span></div>
+        <h1 id="page-title">140 projets,<br><em style="font-style:italic; color:var(--gold);">autant d'histoires</em></h1>
+      </div>
+    </header>
+
+    <!-- GALLERY -->
+    <section class="section" aria-labelledby="gallery-title">
+      <div class="container">
+        <div class="reveal" style="margin-bottom:2rem;">
+          <div class="section-tag"><span>Sélection 2022–2024</span></div>
+          <h2 id="gallery-title">Nos projets récents</h2>
+        </div>
+
+        <!-- Filter buttons -->
+        <div class="gallery-filter reveal" role="group" aria-label="Filtrer par catégorie">
+          <button class="filter-btn active" data-filter="all">Tous</button>
+          <button class="filter-btn" data-filter="branding">Branding</button>
+          <button class="filter-btn" data-filter="digital">Digital</button>
+          <button class="filter-btn" data-filter="editorial">Éditorial</button>
+          <button class="filter-btn" data-filter="motion">Motion</button>
+        </div>
+
+        <!-- Gallery Grid with srcset and picture elements -->
+        <div class="gallery-grid reveal" role="list" aria-label="Galerie de projets">
+
+          <!-- Item 1 — Wide tall -->
+          <figure class="gallery-item wide-tall" role="listitem" data-category="branding" tabindex="0">
+            <picture>
+              <source
+                media="(max-width: 480px)"
+                srcset="https://images.unsplash.com/photo-1634942537034-2531766767d1?w=480&q=80 480w"
+                sizes="100vw"
+              >
+              <source
+                media="(max-width: 768px)"
+                srcset="https://images.unsplash.com/photo-1634942537034-2531766767d1?w=800&q=80 800w"
+                sizes="50vw"
+              >
+              <img
+                src="https://images.unsplash.com/photo-1634942537034-2531766767d1?w=1400&q=80"
+                srcset="
+                  https://images.unsplash.com/photo-1634942537034-2531766767d1?w=700&q=80 700w,
+                  https://images.unsplash.com/photo-1634942537034-2531766767d1?w=1100&q=80 1100w,
+                  https://images.unsplash.com/photo-1634942537034-2531766767d1?w=1400&q=80 1400w
+                "
+                sizes="(max-width: 768px) 100vw, 50vw"
+                alt="Identité de marque complète pour Maison Léon — logo, charte graphique et packaging"
+                loading="lazy" width="1400" height="1000"
+              >
+            </picture>
+            <div class="gallery-overlay">
+              <figcaption class="gallery-caption">
+                <h4>Maison Léon</h4>
+                <span>Identité de marque</span>
+              </figcaption>
+            </div>
+          </figure>
+
+          <!-- Item 2 -->
+          <figure class="gallery-item" role="listitem" data-category="digital" tabindex="0">
+            <picture>
+              <source
+                media="(max-width: 480px)"
+                srcset="https://images.unsplash.com/photo-1545235617-9465d2a55698?w=480&q=80"
+              >
+              <img
+                src="https://images.unsplash.com/photo-1545235617-9465d2a55698?w=800&q=80"
+                srcset="
+                  https://images.unsplash.com/photo-1545235617-9465d2a55698?w=400&q=80 400w,
+                  https://images.unsplash.com/photo-1545235617-9465d2a55698?w=800&q=80 800w
+                "
+                sizes="(max-width:768px) 50vw, 25vw"
+                alt="Application mobile pour Orbita Tech — interface épurée et navigation intuitive"
+                loading="lazy" width="800" height="600"
+              >
+            </picture>
+            <div class="gallery-overlay">
+              <figcaption class="gallery-caption">
+                <h4>Orbita Tech</h4>
+                <span>Application mobile</span>
+              </figcaption>
+            </div>
+          </figure>
+
+          <!-- Item 3 — Tall -->
+          <figure class="gallery-item tall" role="listitem" data-category="editorial" tabindex="0">
+            <picture>
+              <source
+                media="(max-width: 480px)"
+                srcset="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=480&q=80"
+              >
+              <img
+                src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=800&q=80"
+                srcset="
+                  https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=400&q=80 400w,
+                  https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=800&q=80 800w
+                "
+                sizes="(max-width:768px) 50vw, 25vw"
+                alt="Rapport annuel 2023 pour Arc & Co. — design éditorial primé"
+                loading="lazy" width="800" height="1200"
+              >
+            </picture>
+            <div class="gallery-overlay">
+              <figcaption class="gallery-caption">
+                <h4>Arc & Co.</h4>
+                <span>Rapport annuel</span>
+              </figcaption>
+            </div>
+          </figure>
+
+          <!-- Item 4 -->
+          <figure class="gallery-item" role="listitem" data-category="branding" tabindex="0">
+            <picture>
+              <source
+                media="(max-width: 480px)"
+                srcset="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=480&q=80"
+              >
+              <img
+                src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80"
+                srcset="
+                  https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80 400w,
+                  https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80 800w
+                "
+                sizes="(max-width:768px) 50vw, 25vw"
+                alt="Système d'identité visuelle pour Fleur Noire — parfums de luxe"
+                loading="lazy" width="800" height="600"
+              >
+            </picture>
+            <div class="gallery-overlay">
+              <figcaption class="gallery-caption">
+                <h4>Fleur Noire</h4>
+                <span>Packaging luxe</span>
+              </figcaption>
+            </div>
+          </figure>
+
+          <!-- Item 5 — Wide -->
+          <figure class="gallery-item wide" role="listitem" data-category="motion" tabindex="0">
+            <picture>
+              <source
+                media="(max-width: 768px)"
+                srcset="https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=800&q=80"
+                sizes="100vw"
+              >
+              <img
+                src="https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=1400&q=80"
+                srcset="
+                  https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=800&q=80 800w,
+                  https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=1400&q=80 1400w
+                "
+                sizes="(max-width:768px) 100vw, 50vw"
+                alt="Film de marque et animations pour Nexum — campagne digitale internationale"
+                loading="lazy" width="1400" height="700"
+              >
+            </picture>
+            <div class="gallery-overlay">
+              <figcaption class="gallery-caption">
+                <h4>Nexum</h4>
+                <span>Brand film & motion</span>
+              </figcaption>
+            </div>
+          </figure>
+
+          <!-- Item 6 -->
+          <figure class="gallery-item" role="listitem" data-category="digital" tabindex="0">
+            <picture>
+              <img
+                src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&q=80"
+                srcset="
+                  https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=400&q=80 400w,
+                  https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&q=80 800w
+                "
+                sizes="(max-width:768px) 50vw, 25vw"
+                alt="Refonte complète du site web pour Vague Studio"
+                loading="lazy" width="800" height="600"
+              >
+            </picture>
+            <div class="gallery-overlay">
+              <figcaption class="gallery-caption">
+                <h4>Vague Studio</h4>
+                <span>Refonte web</span>
+              </figcaption>
+            </div>
+          </figure>
+
+          <!-- Item 7 -->
+          <figure class="gallery-item" role="listitem" data-category="branding" tabindex="0">
+            <picture>
+              <img
+                src="https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=800&q=80"
+                srcset="
+                  https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=400&q=80 400w,
+                  https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=800&q=80 800w
+                "
+                sizes="(max-width:768px) 50vw, 25vw"
+                alt="Identité complète et signalétique pour la galerie d'art Prism"
+                loading="lazy" width="800" height="600"
+              >
+            </picture>
+            <div class="gallery-overlay">
+              <figcaption class="gallery-caption">
+                <h4>Galerie Prism</h4>
+                <span>Identité & signalétique</span>
+              </figcaption>
+            </div>
+          </figure>
+
+          <!-- Item 8 — Wide -->
+          <figure class="gallery-item wide" role="listitem" data-category="editorial" tabindex="0">
+            <picture>
+              <source
+                media="(max-width: 768px)"
+                srcset="https://images.unsplash.com/photo-1476275466078-4007374efbbe?w=800&q=80"
+                sizes="100vw"
+              >
+              <img
+                src="https://images.unsplash.com/photo-1476275466078-4007374efbbe?w=1400&q=80"
+                srcset="
+                  https://images.unsplash.com/photo-1476275466078-4007374efbbe?w=800&q=80 800w,
+                  https://images.unsplash.com/photo-1476275466078-4007374efbbe?w=1400&q=80 1400w
+                "
+                sizes="(max-width:768px) 100vw, 50vw"
+                alt="Catalogue luxe pour la maison de mode Aurel — print haute couture"
+                loading="lazy" width="1400" height="700"
+              >
+            </picture>
+            <div class="gallery-overlay">
+              <figcaption class="gallery-caption">
+                <h4>Maison Aurel</h4>
+                <span>Catalogue haute couture</span>
+              </figcaption>
+            </div>
+          </figure>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- AWARDS -->
+    <section class="section" style="background:var(--cream);" aria-labelledby="awards-title">
+      <div class="container">
+        <div class="reveal" style="margin-bottom:2rem;">
+          <div class="section-tag"><span>Reconnaissance internationale</span></div>
+          <h2 id="awards-title">Prix & distinctions</h2>
+        </div>
+        <div class="grid-4 reveal">
+          <div style="padding:2rem; text-align:center; border:1px solid var(--border); background:var(--warm-white);">
+            <div style="font-family:var(--font-display); font-size:1.5rem; font-weight:900; font-style:italic; margin-bottom:0.5rem;">Red Dot</div>
+            <p style="font-size:0.8rem;">Best of the Best 2023 — Identité de marque</p>
+          </div>
+          <div style="padding:2rem; text-align:center; border:1px solid var(--border); background:var(--warm-white);">
+            <div style="font-family:var(--font-display); font-size:1.5rem; font-weight:900; font-style:italic; margin-bottom:0.5rem;">Cannes Lions</div>
+            <p style="font-size:0.8rem;">Silver Lion 2023 — Design de communication</p>
+          </div>
+          <div style="padding:2rem; text-align:center; border:1px solid var(--border); background:var(--warm-white);">
+            <div style="font-family:var(--font-display); font-size:1.5rem; font-weight:900; font-style:italic; margin-bottom:0.5rem;">D&AD</div>
+            <p style="font-size:0.8rem;">Pencil d'argent 2022 — Design graphique</p>
+          </div>
+          <div style="padding:2rem; text-align:center; border:1px solid var(--border); background:var(--warm-white);">
+            <div style="font-family:var(--font-display); font-size:1.5rem; font-weight:900; font-style:italic; margin-bottom:0.5rem;">Awwwards</div>
+            <p style="font-size:0.8rem;">Site of the Year 2024 — Design digital</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" role="dialog" aria-modal="true" aria-label="Vue agrandie">
+    <button class="lightbox-close" aria-label="Fermer">&times;</button>
+    <img src="" alt="" loading="lazy">
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="../index.html" class="nav-logo">Forma<span>.</span></a>
+          <p>Agence de design et stratégie créative. Nous transformons les idées en expériences mémorables depuis 2012.</p>
+          <div class="footer-social" aria-label="Réseaux sociaux">
+            <a href="#" aria-label="Instagram">In</a>
+            <a href="#" aria-label="LinkedIn">Li</a>
+            <a href="#" aria-label="Twitter/X">X</a>
+            <a href="#" aria-label="Behance">Be</a>
+          </div>
+        </div>
+        <nav class="footer-col" aria-label="Plan du site">
+          <h5>Navigation</h5>
+          <ul role="list">
+            <li><a href="../index.html">Accueil</a></li>
+            <li><a href="about.html">À propos</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="gallery.html">Galerie</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+        <nav class="footer-col" aria-label="Services">
+          <h5>Services</h5>
+          <ul role="list">
+            <li><a href="services.html">Identité de marque</a></li>
+            <li><a href="services.html">Design numérique</a></li>
+            <li><a href="services.html">Stratégie créative</a></li>
+            <li><a href="services.html">Direction artistique</a></li>
+            <li><a href="services.html">Motion design</a></li>
+          </ul>
+        </nav>
+        <div class="footer-col footer-newsletter">
+          <h5>Newsletter</h5>
+          <p style="font-size:0.8rem; color:rgba(255,255,255,0.4); margin-bottom:1rem; line-height:1.6;">Inspirations créatives et actualités du studio, chaque mois.</p>
+          <input type="email" placeholder="votre@email.com" aria-label="Adresse email newsletter">
+          <button class="btn btn-ghost" style="width:100%; justify-content:center;"><span>S'abonner</span></button>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 Forma Studio. Tous droits réservés.</span>
+        <nav class="footer-legal" aria-label="Mentions légales">
+          <a href="#">Mentions légales</a>
+          <a href="#">Politique de confidentialité</a>
+          <a href="#">CGU</a>
+          <a href="#">Cookies</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+  <script>
+    // Gallery filter
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected', 'false'); });
+        btn.classList.add('active');
+        btn.setAttribute('aria-selected', 'true');
+        const filter = btn.dataset.filter;
+        galleryItems.forEach(item => {
+          const show = filter === 'all' || item.dataset.category === filter;
+          item.style.opacity = show ? '1' : '0.2';
+          item.style.pointerEvents = show ? '' : 'none';
+        });
+      });
+    });
+
+    // Keyboard accessibility for gallery items
+    galleryItems.forEach(item => {
+      item.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') item.click();
+      });
+    });
+  </script>
+</body>
+</html>

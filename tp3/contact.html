@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Forma Studio</title>
+  <meta name="description" content="Contactez Forma Studio pour discuter de votre projet créatif. Formulaire de contact, localisation et informations pratiques. Paris, France.">
+  <meta name="keywords" content="contact agence design, devis créatif, Paris, formulaire contact, Forma Studio">
+  <meta name="author" content="Forma Studio">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.formastudio.fr/pages/contact.html">
+  <meta property="og:title" content="Contact — Forma Studio">
+  <meta property="og:description" content="Discutons de votre prochain projet créatif. Notre équipe est à votre écoute.">
+  <meta property="og:image" content="https://www.formastudio.fr/images/og-contact.jpg">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:site_name" content="Forma Studio">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Contact — Forma Studio">
+
+  <link rel="canonical" href="https://www.formastudio.fr/pages/contact.html">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%230d0d0d'/><text y='24' x='4' font-size='22' fill='%23c8410a' font-family='Georgia' font-style='italic' font-weight='900'>F</text></svg>">
+
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .budget-display {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin: 0.5rem 0;
+    }
+
+    /* Custom range input */
+    input[type="range"] {
+      -webkit-appearance: none;
+      width: 100%;
+      height: 4px;
+      background: var(--border);
+      border-radius: 2px;
+      outline: none;
+    }
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 18px; height: 18px;
+      border-radius: 50%;
+      background: var(--accent);
+      cursor: pointer;
+      border: 2px solid var(--paper);
+      box-shadow: 0 0 0 2px var(--accent);
+    }
+    input[type="range"]::-moz-range-thumb {
+      width: 18px; height: 18px;
+      border-radius: 50%;
+      background: var(--accent);
+      cursor: pointer;
+      border: 2px solid var(--paper);
+    }
+
+    /* File input */
+    .file-drop {
+      border: 2px dashed var(--border);
+      padding: 2rem;
+      text-align: center;
+      cursor: pointer;
+      transition: border-color 0.2s, background 0.2s;
+      background: var(--warm-white);
+      position: relative;
+    }
+    .file-drop:hover, .file-drop:focus-within {
+      border-color: var(--accent);
+      background: rgba(200,65,10,0.03);
+    }
+    .file-drop input[type="file"] {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      cursor: pointer;
+      width: 100%; height: 100%;
+      border: none;
+      background: none;
+      padding: 0;
+    }
+    .file-drop p {
+      font-family: var(--font-cond);
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      color: var(--mid);
+      pointer-events: none;
+    }
+    .file-drop span {
+      color: var(--accent);
+      text-decoration: underline;
+    }
+
+    .form-note {
+      font-size: 0.75rem;
+      color: var(--mid);
+      font-family: var(--font-mono);
+    }
+
+    /* Honeypot */
+    .ohnohoney { opacity: 0; position: absolute; top: 0; left: 0; height: 0; width: 0; z-index: -1; }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" role="navigation" aria-label="Navigation principale">
+    <div class="container nav-inner">
+      <a href="../index.html" class="nav-logo" aria-label="Forma Studio — Accueil">Forma<span>.</span></a>
+      <ul class="nav-links" role="list">
+        <li><a href="../index.html" class="nav-link">Accueil</a></li>
+        <li><a href="about.html" class="nav-link">À propos</a></li>
+        <li><a href="services.html" class="nav-link">Services</a></li>
+        <li><a href="gallery.html" class="nav-link">Galerie</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+      </ul>
+      <button class="hamburger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <nav class="mobile-nav" aria-label="Navigation mobile">
+    <a href="../index.html">Accueil</a>
+    <a href="about.html">À propos</a>
+    <a href="services.html">Services</a>
+    <a href="gallery.html">Galerie</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <main>
+    <!-- PAGE HEADER -->
+    <header class="page-header" data-text="Parlons" aria-labelledby="page-title">
+      <div class="container">
+        <p class="breadcrumb"><a href="../index.html">Accueil</a> / Contact</p>
+        <div class="section-tag"><span>On vous écoute</span></div>
+        <h1 id="page-title">Démarrons<br><em style="font-style:italic; color:var(--gold);">quelque chose</em></h1>
+      </div>
+    </header>
+
+    <!-- CONTACT SECTION -->
+    <section class="section" aria-labelledby="contact-section-title">
+      <div class="container">
+        <h2 id="contact-section-title" class="sr-only">Formulaire de contact et informations</h2>
+        <div class="contact-layout">
+
+          <!-- Contact Info -->
+          <aside aria-label="Informations de contact">
+            <div class="reveal">
+              <div class="section-tag"><span>Coordonnées</span></div>
+              <h2 style="margin-bottom:1.5rem; font-size:2rem;">Prenons contact</h2>
+              <p>Que vous ayez un projet précis ou que vous souhaitiez simplement explorer les possibilités, nous sommes là pour vous répondre dans les 24h.</p>
+            </div>
+
+            <div style="margin-top:2.5rem;" class="reveal reveal-delay-1">
+              <div class="contact-detail">
+                <div class="contact-icon" aria-hidden="true">📍</div>
+                <div class="contact-detail-text">
+                  <span class="label">Adresse</span>
+                  <address style="font-style:normal; font-size:0.9rem; line-height:1.6;">
+                    14 rue des Arts<br>
+                    75003 Paris, France
+                  </address>
+                </div>
+              </div>
+
+              <div class="contact-detail">
+                <div class="contact-icon" aria-hidden="true">✉️</div>
+                <div class="contact-detail-text">
+                  <span class="label">Email</span>
+                  <a href="mailto:bonjour@formastudio.fr" style="font-size:0.9rem;">bonjour@formastudio.fr</a>
+                </div>
+              </div>
+
+              <div class="contact-detail">
+                <div class="contact-icon" aria-hidden="true">📞</div>
+                <div class="contact-detail-text">
+                  <span class="label">Téléphone</span>
+                  <a href="tel:+33140123456" style="font-size:0.9rem;">+33 (0)1 40 12 34 56</a>
+                </div>
+              </div>
+
+              <div class="contact-detail">
+                <div class="contact-icon" aria-hidden="true">🕐</div>
+                <div class="contact-detail-text">
+                  <span class="label">Horaires</span>
+                  <p style="font-size:0.85rem; color:var(--ink);">Lundi–Vendredi : 9h–18h30<br>
+                  <small style="color:var(--mid);">Réponse sous 24h ouvrées</small></p>
+                </div>
+              </div>
+
+              <div class="contact-detail">
+                <div class="contact-icon" aria-hidden="true">🔗</div>
+                <div class="contact-detail-text">
+                  <span class="label">Réseaux sociaux</span>
+                  <div style="display:flex; gap:1rem; margin-top:0.5rem;">
+                    <a href="#" style="font-family:var(--font-cond); font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--accent);" aria-label="Instagram">Instagram</a>
+                    <a href="#" style="font-family:var(--font-cond); font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--accent);" aria-label="LinkedIn">LinkedIn</a>
+                    <a href="#" style="font-family:var(--font-cond); font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--accent);" aria-label="Behance">Behance</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </aside>
+
+          <!-- Contact Form -->
+          <div class="reveal reveal-delay-2">
+            <form class="form" id="contactForm" novalidate aria-label="Formulaire de contact" method="post" action="#" enctype="multipart/form-data">
+
+              <!-- Honeypot anti-spam -->
+              <div class="ohnohoney" aria-hidden="true">
+                <label for="website">Ne pas remplir</label>
+                <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+              </div>
+
+              <!-- Row 1: Prénom / Nom -->
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="firstname">Prénom <span class="req" aria-label="Champ requis">*</span></label>
+                  <input
+                    type="text"
+                    id="firstname"
+                    name="firstname"
+                    placeholder="Élise"
+                    required
+                    autocomplete="given-name"
+                    minlength="2"
+                    maxlength="50"
+                  >
+                </div>
+                <div class="form-group">
+                  <label for="lastname">Nom <span class="req" aria-label="Champ requis">*</span></label>
+                  <input
+                    type="text"
+                    id="lastname"
+                    name="lastname"
+                    placeholder="Forêt"
+                    required
+                    autocomplete="family-name"
+                    minlength="2"
+                    maxlength="50"
+                  >
+                </div>
+              </div>
+
+              <!-- Row 2: Email / Téléphone -->
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="email">Email professionnel <span class="req" aria-label="Champ requis">*</span></label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="vous@entreprise.com"
+                    required
+                    autocomplete="email"
+                  >
+                </div>
+                <div class="form-group">
+                  <label for="phone">Téléphone</label>
+                  <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    placeholder="+33 6 XX XX XX XX"
+                    autocomplete="tel"
+                    pattern="[\+0-9\s\-\(\)]{8,20}"
+                  >
+                </div>
+              </div>
+
+              <!-- Entreprise / Site web -->
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="company">Entreprise</label>
+                  <input
+                    type="text"
+                    id="company"
+                    name="company"
+                    placeholder="Votre société"
+                    autocomplete="organization"
+                  >
+                </div>
+                <div class="form-group">
+                  <label for="website-url">Site web actuel</label>
+                  <input
+                    type="url"
+                    id="website-url"
+                    name="website_url"
+                    placeholder="https://www.monsite.fr"
+                    autocomplete="url"
+                  >
+                </div>
+              </div>
+
+              <!-- Type de projet — select -->
+              <div class="form-group">
+                <label for="project-type">Type de projet <span class="req" aria-label="Champ requis">*</span></label>
+                <select id="project-type" name="project_type" required aria-required="true">
+                  <option value="" disabled selected>Sélectionnez un service</option>
+                  <optgroup label="Identité visuelle">
+                    <option value="branding">Identité de marque complète</option>
+                    <option value="logo">Logo seul</option>
+                    <option value="rebranding">Rebranding</option>
+                  </optgroup>
+                  <optgroup label="Digital">
+                    <option value="web">Site web</option>
+                    <option value="app">Application mobile</option>
+                    <option value="ux">Audit UX / Refonte interface</option>
+                  </optgroup>
+                  <optgroup label="Contenu">
+                    <option value="editorial">Design éditorial / Print</option>
+                    <option value="motion">Motion design / Vidéo</option>
+                    <option value="direction">Direction artistique</option>
+                  </optgroup>
+                  <option value="strategy">Stratégie créative</option>
+                  <option value="other">Autre / Je ne sais pas encore</option>
+                </select>
+              </div>
+
+              <!-- Canaux de communication — checkboxes -->
+              <div class="form-group">
+                <fieldset style="border:none; padding:0;">
+                  <legend style="font-family:var(--font-cond); font-size:0.72rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--mid); margin-bottom:0.75rem; display:block;">
+                    Comment préférez-vous être contacté ?
+                  </legend>
+                  <div class="checkbox-group">
+                    <label class="checkbox-option">
+                      <input type="checkbox" name="contact_pref" value="email" checked> Email
+                    </label>
+                    <label class="checkbox-option">
+                      <input type="checkbox" name="contact_pref" value="phone"> Téléphone
+                    </label>
+                    <label class="checkbox-option">
+                      <input type="checkbox" name="contact_pref" value="video"> Visio (Zoom/Meet)
+                    </label>
+                    <label class="checkbox-option">
+                      <input type="checkbox" name="contact_pref" value="inperson"> En personne (Paris)
+                    </label>
+                  </div>
+                </fieldset>
+              </div>
+
+              <!-- Délai — radio buttons -->
+              <div class="form-group">
+                <fieldset style="border:none; padding:0;">
+                  <legend style="font-family:var(--font-cond); font-size:0.72rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--mid); margin-bottom:0.75rem; display:block;">
+                    Délai souhaité <span class="req" aria-label="Champ requis">*</span>
+                  </legend>
+                  <div class="radio-group">
+                    <label class="radio-option">
+                      <input type="radio" name="timeline" value="urgent" required> Urgent (&lt; 1 mois)
+                    </label>
+                    <label class="radio-option">
+                      <input type="radio" name="timeline" value="normal"> Normal (1–3 mois)
+                    </label>
+                    <label class="radio-option">
+                      <input type="radio" name="timeline" value="flexible"> Flexible (&gt; 3 mois)
+                    </label>
+                    <label class="radio-option">
+                      <input type="radio" name="timeline" value="unknown"> À définir ensemble
+                    </label>
+                  </div>
+                </fieldset>
+              </div>
+
+              <!-- Budget — range input -->
+              <div class="form-group">
+                <label for="budget">Budget estimé</label>
+                <div class="budget-display" id="budgetDisplay" aria-live="polite">5 000 €</div>
+                <input
+                  type="range"
+                  id="budget"
+                  name="budget"
+                  min="1000"
+                  max="100000"
+                  step="500"
+                  value="5000"
+                  aria-valuemin="1000"
+                  aria-valuemax="100000"
+                  aria-valuenow="5000"
+                  aria-label="Budget estimé en euros"
+                >
+                <div class="range-labels">
+                  <span>1 000 €</span>
+                  <span>25 000 €</span>
+                  <span>50 000 €</span>
+                  <span>100 000 €+</span>
+                </div>
+              </div>
+
+              <!-- Date de lancement souhaitée — date input -->
+              <div class="form-group">
+                <label for="launch-date">Date de lancement souhaitée</label>
+                <input
+                  type="date"
+                  id="launch-date"
+                  name="launch_date"
+                  min="2025-01-01"
+                >
+              </div>
+
+              <!-- Message -->
+              <div class="form-group">
+                <label for="message">Décrivez votre projet <span class="req" aria-label="Champ requis">*</span></label>
+                <textarea
+                  id="message"
+                  name="message"
+                  required
+                  rows="6"
+                  placeholder="Parlez-nous de votre marque, vos objectifs, vos inspirations, ce qui vous a mené jusqu'à nous..."
+                  minlength="20"
+                  maxlength="2000"
+                  aria-required="true"
+                ></textarea>
+                <div style="display:flex; justify-content:flex-end; margin-top:0.25rem;">
+                  <span class="form-note" id="char-count">0 / 2000</span>
+                </div>
+              </div>
+
+              <!-- Pièce jointe — file input -->
+              <div class="form-group">
+                <label>Brief ou inspiration (optionnel)</label>
+                <div class="file-drop">
+                  <input
+                    type="file"
+                    id="attachment"
+                    name="attachment"
+                    accept=".pdf,.doc,.docx,.png,.jpg,.jpeg,.zip"
+                    aria-describedby="file-help"
+                  >
+                  <p>
+                    <span>Cliquez pour choisir un fichier</span> ou glissez-déposez ici
+                  </p>
+                  <p id="file-help" style="margin-top:0.5rem; font-size:0.7rem;">PDF, DOC, PNG, JPG, ZIP — max 10 Mo</p>
+                </div>
+              </div>
+
+              <!-- Découverte — select -->
+              <div class="form-group">
+                <label for="source">Comment avez-vous découvert Forma Studio ?</label>
+                <select id="source" name="source">
+                  <option value="">Choisissez une option</option>
+                  <option value="search">Moteur de recherche</option>
+                  <option value="recommendation">Recommandation</option>
+                  <option value="social">Réseaux sociaux</option>
+                  <option value="press">Presse / Articles</option>
+                  <option value="award">Palmarès / Prix</option>
+                  <option value="event">Événement / Conférence</option>
+                  <option value="other">Autre</option>
+                </select>
+              </div>
+
+              <!-- RGPD consent -->
+              <div class="form-group">
+                <label class="checkbox-option" style="align-items:flex-start; gap:0.75rem;">
+                  <input type="checkbox" name="rgpd" required style="margin-top:0.2rem; flex-shrink:0;" aria-required="true">
+                  <span style="font-size:0.82rem; color:var(--mid); line-height:1.5;">
+                    J'accepte que mes données soient utilisées pour traiter ma demande, conformément à la
+                    <a href="#" style="color:var(--accent); text-decoration:underline;">politique de confidentialité</a>
+                    de Forma Studio. <span class="req" aria-label="Champ requis">*</span>
+                  </span>
+                </label>
+              </div>
+
+              <!-- Newsletter opt-in -->
+              <div class="form-group">
+                <label class="checkbox-option" style="align-items:flex-start; gap:0.75rem;">
+                  <input type="checkbox" name="newsletter" style="margin-top:0.2rem; flex-shrink:0;">
+                  <span style="font-size:0.82rem; color:var(--mid); line-height:1.5;">
+                    Je souhaite recevoir la newsletter mensuelle de Forma Studio (inspirations créatives, actualités, projets).
+                  </span>
+                </label>
+              </div>
+
+              <div class="form-submit">
+                <button type="submit" class="btn btn-primary" style="padding:1rem 2.5rem;">
+                  <span>Envoyer ma demande</span>
+                  <span class="btn-arrow" aria-hidden="true">→</span>
+                </button>
+                <p class="form-note" style="margin-top:1rem;">
+                  Réponse garantie sous 24h ouvrées. Tous les champs marqués <span style="color:var(--accent);">*</span> sont obligatoires.
+                </p>
+              </div>
+
+            </form>
+          </div>
+        </div>
+
+        <!-- MAP -->
+        <div class="map-section reveal">
+          <div class="divider"></div>
+          <div class="section-tag" style="margin-bottom:1.5rem;"><span>Nous trouver</span></div>
+          <h3 style="margin-bottom:1.5rem;">Notre atelier à Paris</h3>
+          <iframe
+            class="map-frame"
+            src="https://www.openstreetmap.org/export/embed.html?bbox=2.3480%2C48.8580%2C2.3680%2C48.8680&layer=mapnik&marker=48.8630%2C2.3580"
+            title="Carte de localisation de Forma Studio au 14 rue des Arts, Paris 3e"
+            loading="lazy"
+            allowfullscreen
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+          <p style="text-align:center; margin-top:1rem; font-size:0.8rem; color:var(--mid);">
+            14 rue des Arts, 75003 Paris — Métro : Arts et Métiers (ligne 3, 11)
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" style="background:var(--cream);" aria-labelledby="faq-title">
+      <div class="container" style="max-width:800px;">
+        <div class="reveal" style="margin-bottom:2.5rem;">
+          <div class="section-tag"><span>Questions fréquentes</span></div>
+          <h2 id="faq-title">Avant de nous contacter</h2>
+        </div>
+        <div class="services-list reveal">
+          <details class="service-detail">
+            <summary>
+              <div class="summary-left">
+                <span class="summary-title" style="font-size:1.1rem;">Quel est le budget minimum pour travailler avec vous ?</span>
+              </div>
+              <span class="summary-arrow" aria-hidden="true">+</span>
+            </summary>
+            <div style="padding:1rem 0 2rem 2rem;">
+              <p>Nos projets démarrent généralement à partir de 3 500 € HT pour des missions ciblées (logo, landing page). La majorité de nos projets se situe entre 8 000 € et 30 000 €. Nous proposons aussi des accompagnements en retainer mensuel pour des collaborations longue durée.</p>
+            </div>
+          </details>
+          <details class="service-detail">
+            <summary>
+              <div class="summary-left">
+                <span class="summary-title" style="font-size:1.1rem;">Travaillez-vous avec des clients hors de Paris ?</span>
+              </div>
+              <span class="summary-arrow" aria-hidden="true">+</span>
+            </summary>
+            <div style="padding:1rem 0 2rem 2rem;">
+              <p>Absolument ! Environ 40% de nos clients sont en dehors de Paris, et nous travaillons régulièrement avec des marques à travers l'Europe. Toute notre collaboration peut se faire à distance, avec des points de sync réguliers en visioconférence.</p>
+            </div>
+          </details>
+          <details class="service-detail">
+            <summary>
+              <div class="summary-left">
+                <span class="summary-title" style="font-size:1.1rem;">Combien de temps prend un projet typique ?</span>
+              </div>
+              <span class="summary-arrow" aria-hidden="true">+</span>
+            </summary>
+            <div style="padding:1rem 0 2rem 2rem;">
+              <p>Une identité de marque complète nécessite généralement 8 à 12 semaines. Un site web, 6 à 10 semaines. Nous pouvons accélérer les délais en cas d'urgence avec un supplément de 30%. Nous préférons prendre le temps nécessaire pour livrer un travail exceptionnel.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="../index.html" class="nav-logo">Forma<span>.</span></a>
+          <p>Agence de design et stratégie créative. Nous transformons les idées en expériences mémorables depuis 2012.</p>
+          <div class="footer-social" aria-label="Réseaux sociaux">
+            <a href="#" aria-label="Instagram">In</a>
+            <a href="#" aria-label="LinkedIn">Li</a>
+            <a href="#" aria-label="Twitter/X">X</a>
+            <a href="#" aria-label="Behance">Be</a>
+          </div>
+        </div>
+        <nav class="footer-col" aria-label="Plan du site">
+          <h5>Navigation</h5>
+          <ul role="list">
+            <li><a href="../index.html">Accueil</a></li>
+            <li><a href="about.html">À propos</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="gallery.html">Galerie</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+        <nav class="footer-col" aria-label="Services">
+          <h5>Services</h5>
+          <ul role="list">
+            <li><a href="services.html">Identité de marque</a></li>
+            <li><a href="services.html">Design numérique</a></li>
+            <li><a href="services.html">Stratégie créative</a></li>
+            <li><a href="services.html">Direction artistique</a></li>
+            <li><a href="services.html">Motion design</a></li>
+          </ul>
+        </nav>
+        <div class="footer-col footer-newsletter">
+          <h5>Newsletter</h5>
+          <p style="font-size:0.8rem; color:rgba(255,255,255,0.4); margin-bottom:1rem; line-height:1.6;">Inspirations créatives et actualités du studio, chaque mois.</p>
+          <input type="email" placeholder="votre@email.com" aria-label="Adresse email newsletter">
+          <button class="btn btn-ghost" style="width:100%; justify-content:center;"><span>S'abonner</span></button>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 Forma Studio. Tous droits réservés.</span>
+        <nav class="footer-legal" aria-label="Mentions légales">
+          <a href="#">Mentions légales</a>
+          <a href="#">Politique de confidentialité</a>
+          <a href="#">CGU</a>
+          <a href="#">Cookies</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+  <script>
+    // Character counter for message
+    const msgField = document.getElementById('message');
+    const charCount = document.getElementById('char-count');
+    if (msgField && charCount) {
+      msgField.addEventListener('input', () => {
+        const len = msgField.value.length;
+        charCount.textContent = `${len} / 2000`;
+        charCount.style.color = len > 1800 ? 'var(--accent)' : '';
+      });
+    }
+
+    // File name display
+    const fileInput = document.getElementById('attachment');
+    const fileDrop = fileInput?.closest('.file-drop');
+    if (fileInput && fileDrop) {
+      fileInput.addEventListener('change', () => {
+        const file = fileInput.files[0];
+        if (file) {
+          fileDrop.querySelector('p').textContent = `✓ ${file.name} (${(file.size/1024/1024).toFixed(2)} Mo)`;
+        }
+      });
+    }
+  </script>
+</body>
+</html>

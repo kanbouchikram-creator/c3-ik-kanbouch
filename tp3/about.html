@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>À propos — Forma Studio</title>
+  <meta name="description" content="Découvrez l'équipe passionnée de Forma Studio, agence de design et stratégie créative à Paris. Notre histoire, nos valeurs et nos expertises.">
+  <meta name="keywords" content="équipe design, agence créative Paris, à propos, designers, stratèges">
+  <meta name="author" content="Forma Studio">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.formastudio.fr/pages/about.html">
+  <meta property="og:title" content="À propos — Forma Studio">
+  <meta property="og:description" content="Découvrez l'équipe passionnée de Forma Studio, agence de design et stratégie créative à Paris.">
+  <meta property="og:image" content="https://www.formastudio.fr/images/og-about.jpg">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:site_name" content="Forma Studio">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="À propos — Forma Studio">
+  <meta name="twitter:description" content="Découvrez l'équipe passionnée de Forma Studio.">
+
+  <link rel="canonical" href="https://www.formastudio.fr/pages/about.html">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%230d0d0d'/><text y='24' x='4' font-size='22' fill='%23c8410a' font-family='Georgia' font-style='italic' font-weight='900'>F</text></svg>">
+
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .timeline { display: flex; flex-direction: column; gap: 0; }
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 120px 1px 1fr;
+      gap: 0 2rem;
+      padding: 2.5rem 0;
+      position: relative;
+    }
+    .timeline-year {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      font-weight: 900;
+      color: var(--accent);
+      text-align: right;
+      padding-top: 0.2rem;
+    }
+    .timeline-line { background: var(--border); position: relative; }
+    .timeline-line::before {
+      content: '';
+      position: absolute;
+      top: 0.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: 2px solid var(--paper);
+      box-shadow: 0 0 0 2px var(--accent);
+    }
+    .timeline-content { padding-left: 1rem; }
+    .timeline-content h4 { margin-bottom: 0.5rem; }
+    .timeline-content p { font-size: 0.85rem; }
+
+    .stats-band {
+      background: var(--ink);
+      padding: 4rem 0;
+    }
+    .stats-inner {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+    }
+    .stat-item {
+      text-align: center;
+      padding: 2rem;
+      border-right: 1px solid rgba(255,255,255,0.08);
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-item .big-num {
+      font-family: var(--font-display);
+      font-size: 3.5rem;
+      font-weight: 900;
+      color: var(--paper);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+    .stat-item .big-num span { color: var(--accent); }
+    .stat-item p {
+      font-family: var(--font-cond);
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+    }
+
+    @media (max-width: 768px) {
+      .stats-inner { grid-template-columns: 1fr 1fr; }
+      .stat-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
+      .timeline-item { grid-template-columns: 70px 1px 1fr; }
+      .timeline-year { font-size: 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" role="navigation" aria-label="Navigation principale">
+    <div class="container nav-inner">
+      <a href="../index.html" class="nav-logo" aria-label="Forma Studio — Accueil">Forma<span>.</span></a>
+      <ul class="nav-links" role="list">
+        <li><a href="../index.html" class="nav-link">Accueil</a></li>
+        <li><a href="about.html" class="nav-link">À propos</a></li>
+        <li><a href="services.html" class="nav-link">Services</a></li>
+        <li><a href="gallery.html" class="nav-link">Galerie</a></li>
+        <li><a href="contact.html" class="nav-link nav-cta">
+          <span class="btn btn-primary"><span>Contact</span></span>
+        </a></li>
+      </ul>
+      <button class="hamburger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <nav class="mobile-nav" aria-label="Navigation mobile">
+    <a href="../index.html">Accueil</a>
+    <a href="about.html">À propos</a>
+    <a href="services.html">Services</a>
+    <a href="gallery.html">Galerie</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <main>
+    <!-- PAGE HEADER -->
+    <header class="page-header" data-text="Studio" aria-labelledby="page-title">
+      <div class="container">
+        <p class="breadcrumb"><a href="../index.html">Accueil</a> / À propos</p>
+        <div class="section-tag"><span>Notre histoire</span></div>
+        <h1 id="page-title">Le studio derrière les œuvres</h1>
+      </div>
+    </header>
+
+    <!-- INTRO -->
+    <section class="section" aria-labelledby="mission-title">
+      <div class="container grid-2 gap-2" style="align-items:center; gap:5rem;">
+        <div class="reveal">
+          <div class="section-tag"><span>Notre mission</span></div>
+          <h2 id="mission-title">Créer avec intention, concevoir avec âme</h2>
+          <p style="margin:1.5rem 0;">Fondé en 2012 par Élise Forêt et Marc Dubuis, Forma Studio est né d'une conviction simple : le bon design change tout. Pas seulement l'esthétique — mais la façon dont les gens ressentent, comprennent et interagissent avec le monde.</p>
+          <p>Aujourd'hui, notre équipe de 18 créatifs travaille avec des marques à travers toute l'Europe, de la start-up ambitieuse au groupe international, avec la même rigueur et la même passion.</p>
+        </div>
+        <figure class="reveal reveal-delay-2" style="margin:0;">
+          <picture>
+            <source
+              media="(max-width: 480px)"
+              srcset="https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?w=480&q=80"
+            >
+            <source
+              media="(max-width: 1024px)"
+              srcset="https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?w=800&q=80"
+            >
+            <img
+              src="https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?w=1200&q=80"
+              srcset="
+                https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?w=600&q=80 600w,
+                https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?w=1000&q=80 1000w
+              "
+              sizes="(max-width:768px) 100vw, 50vw"
+              alt="L'équipe de Forma Studio réunie dans son atelier au cœur de Paris"
+              loading="lazy"
+              width="1200" height="800"
+              style="width:100%; aspect-ratio:4/3; object-fit:cover;"
+            >
+          </picture>
+          <figcaption style="font-family:var(--font-mono); font-size:0.75rem; color:var(--mid); margin-top:0.75rem; padding-left:1rem; border-left:2px solid var(--accent);">
+            Notre atelier au 14 rue des Arts, Paris 3e — espace de création et de collaboration ouvert depuis 2015.
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- STATS -->
+    <div class="stats-band" role="region" aria-label="Chiffres clés">
+      <div class="container">
+        <div class="stats-inner">
+          <div class="stat-item reveal">
+            <div class="big-num">140<span>+</span></div>
+            <p>Projets réalisés</p>
+          </div>
+          <div class="stat-item reveal reveal-delay-1">
+            <div class="big-num">18</div>
+            <p>Créatifs passionnés</p>
+          </div>
+          <div class="stat-item reveal reveal-delay-2">
+            <div class="big-num">24</div>
+            <p>Prix internationaux</p>
+          </div>
+          <div class="stat-item reveal reveal-delay-3">
+            <div class="big-num">12<span>ans</span></div>
+            <p>D'excellence créative</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TEAM -->
+    <section class="section" aria-labelledby="team-title">
+      <div class="container">
+        <div class="reveal" style="margin-bottom:3rem;">
+          <div class="section-tag"><span>Notre équipe</span></div>
+          <h2 id="team-title">Les visages derrière les projets</h2>
+        </div>
+        <div class="team-grid" role="list">
+
+          <figure class="team-card reveal" role="listitem">
+            <picture>
+              <source
+                media="(max-width:480px)"
+                srcset="https://images.unsplash.com/photo-1494790108755-2616b612b494?w=400&q=80 400w"
+              >
+              <img
+                src="https://images.unsplash.com/photo-1494790108755-2616b612b494?w=800&q=80"
+                srcset="
+                  https://images.unsplash.com/photo-1494790108755-2616b612b494?w=400&q=80 400w,
+                  https://images.unsplash.com/photo-1494790108755-2616b612b494?w=800&q=80 800w
+                "
+                sizes="(max-width:768px) 50vw, 33vw"
+                alt="Élise Forêt, co-fondatrice et directrice créative de Forma Studio"
+                loading="lazy" width="800" height="1067"
+              >
+            </picture>
+            <figcaption>
+              <h3>Élise Forêt</h3>
+              <p class="role">Co-fondatrice & Directrice Créative</p>
+              <p>Ancienne de l'ENSAD, Élise dirige la vision créative du studio avec une approche centrée sur l'émotion et la narration visuelle.</p>
+            </figcaption>
+          </figure>
+
+          <figure class="team-card reveal reveal-delay-1" role="listitem">
+            <picture>
+              <img
+                src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=800&q=80"
+                srcset="
+                  https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80 400w,
+                  https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=800&q=80 800w
+                "
+                sizes="(max-width:768px) 50vw, 33vw"
+                alt="Marc Dubuis, co-fondateur et directeur stratégique de Forma Studio"
+                loading="lazy" width="800" height="1067"
+              >
+            </picture>
+            <figcaption>
+              <h3>Marc Dubuis</h3>
+              <p class="role">Co-fondateur & Directeur Stratégique</p>
+              <p>Stratège de marque avec 15 ans d'expérience chez Wolff Olins et Pentagram, Marc orchestre la vision globale des projets clients.</p>
+            </figcaption>
+          </figure>
+
+          <figure class="team-card reveal reveal-delay-2" role="listitem">
+            <picture>
+              <img
+                src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=800&q=80"
+                srcset="
+                  https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&q=80 400w,
+                  https://images.unsplash.com/photo-1580489944761-15a19d654956?w=800&q=80 800w
+                "
+                sizes="(max-width:768px) 50vw, 33vw"
+                alt="Yasmine Kadi, lead designer UX/UI"
+                loading="lazy" width="800" height="1067"
+              >
+            </picture>
+            <figcaption>
+              <h3>Yasmine Kadi</h3>
+              <p class="role">Lead Designer UX/UI</p>
+              <p>Spécialiste des interfaces centrées utilisateur, Yasmine transforme les comportements humains en expériences numériques intuitives.</p>
+            </figcaption>
+          </figure>
+
+          <figure class="team-card reveal" role="listitem">
+            <picture>
+              <img
+                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80"
+                srcset="
+                  https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80 400w,
+                  https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80 800w
+                "
+                sizes="(max-width:768px) 50vw, 33vw"
+                alt="Julien Moreau, directeur technique"
+                loading="lazy" width="800" height="1067"
+              >
+            </picture>
+            <figcaption>
+              <h3>Julien Moreau</h3>
+              <p class="role">Directeur Technique</p>
+              <p>Développeur full-stack et architecte front-end, Julien assure que chaque conception devient une réalité numérique sans compromis.</p>
+            </figcaption>
+          </figure>
+
+          <figure class="team-card reveal reveal-delay-1" role="listitem">
+            <picture>
+              <img
+                src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=800&q=80"
+                srcset="
+                  https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&q=80 400w,
+                  https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=800&q=80 800w
+                "
+                sizes="(max-width:768px) 50vw, 33vw"
+                alt="Camille Bertrand, motion designer"
+                loading="lazy" width="800" height="1067"
+              >
+            </picture>
+            <figcaption>
+              <h3>Camille Bertrand</h3>
+              <p class="role">Motion Designer</p>
+              <p>Animatrice et artiste visuelle, Camille donne vie aux marques à travers des animations qui conjuguent fluidité et caractère.</p>
+            </figcaption>
+          </figure>
+
+          <figure class="team-card reveal reveal-delay-2" role="listitem">
+            <picture>
+              <img
+                src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=800&q=80"
+                srcset="
+                  https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&q=80 400w,
+                  https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=800&q=80 800w
+                "
+                sizes="(max-width:768px) 50vw, 33vw"
+                alt="Antoine Silva, responsable des relations clients"
+                loading="lazy" width="800" height="1067"
+              >
+            </picture>
+            <figcaption>
+              <h3>Antoine Silva</h3>
+              <p class="role">Responsable Relations Clients</p>
+              <p>Interface entre les clients et l'équipe créative, Antoine garantit une collaboration fluide et des projets livrés dans les délais.</p>
+            </figcaption>
+          </figure>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- VALUES -->
+    <section class="section" style="background:var(--cream);" aria-labelledby="values-title">
+      <div class="container">
+        <div class="reveal" style="margin-bottom:3rem;">
+          <div class="section-tag"><span>Ce qui nous guide</span></div>
+          <h2 id="values-title">Nos valeurs fondatrices</h2>
+        </div>
+        <div class="values-grid">
+          <div class="value-item reveal">
+            <div class="value-num">01</div>
+            <div>
+              <h4>Intentionnalité</h4>
+              <p>Chaque décision créative est motivée par un objectif clair. Nous ne créons jamais pour créer — chaque élément a sa raison d'être.</p>
+            </div>
+          </div>
+          <div class="value-item reveal reveal-delay-1">
+            <div class="value-num">02</div>
+            <div>
+              <h4>Excellence artisanale</h4>
+              <p>Le soin du détail n'est pas un luxe, c'est notre standard. Nous poussons chaque projet jusqu'à ce qu'il soit juste — pas seulement bon.</p>
+            </div>
+          </div>
+          <div class="value-item reveal reveal-delay-2">
+            <div class="value-num">03</div>
+            <div>
+              <h4>Collaboration profonde</h4>
+              <p>Nous ne travaillons pas pour nos clients, nous travaillons avec eux. Leur expertise métier et notre créativité forment un tandem imbattable.</p>
+            </div>
+          </div>
+          <div class="value-item reveal reveal-delay-3">
+            <div class="value-num">04</div>
+            <div>
+              <h4>Curiosité permanente</h4>
+              <p>Le bon design naît d'une curiosité insatiable. Nous explorons constamment nouvelles disciplines, cultures et technologies.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TIMELINE -->
+    <section class="section" aria-labelledby="history-title">
+      <div class="container">
+        <div class="reveal" style="margin-bottom:3rem;">
+          <div class="section-tag"><span>Notre parcours</span></div>
+          <h2 id="history-title">12 ans d'histoire</h2>
+        </div>
+        <div class="timeline" style="max-width:800px;" role="list">
+          <div class="timeline-item reveal" role="listitem">
+            <div class="timeline-year">2012</div>
+            <div class="timeline-line" aria-hidden="true"></div>
+            <div class="timeline-content">
+              <h4>Naissance du studio</h4>
+              <p>Élise et Marc fondent Forma Studio dans un appartement de 40m² du Marais. Premiers clients : trois start-ups locales et un restaurant gastronomique.</p>
+            </div>
+          </div>
+          <div class="timeline-item reveal" role="listitem">
+            <div class="timeline-year">2015</div>
+            <div class="timeline-line" aria-hidden="true"></div>
+            <div class="timeline-content">
+              <h4>Premier bureau & expansion</h4>
+              <p>L'équipe passe à 8 personnes. Inauguration de l'atelier rue des Arts. Premier prix international à la Biennale de Design de Lyon.</p>
+            </div>
+          </div>
+          <div class="timeline-item reveal" role="listitem">
+            <div class="timeline-year">2018</div>
+            <div class="timeline-line" aria-hidden="true"></div>
+            <div class="timeline-content">
+              <h4>Rayonnement européen</h4>
+              <p>Ouverture d'une antenne à Berlin. Collaboration avec des marques de renommée internationale. Lauréat du Red Dot Award.</p>
+            </div>
+          </div>
+          <div class="timeline-item reveal" role="listitem">
+            <div class="timeline-year">2024</div>
+            <div class="timeline-line" aria-hidden="true"></div>
+            <div class="timeline-content">
+              <h4>Nouvelle décennie créative</h4>
+              <p>140 projets réalisés, 18 créatifs, 24 prix. Lancement de notre programme de mentorat pour jeunes designers issus de la diversité.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="../index.html" class="nav-logo">Forma<span>.</span></a>
+          <p>Agence de design et stratégie créative. Nous transformons les idées en expériences mémorables depuis 2012.</p>
+          <div class="footer-social" aria-label="Réseaux sociaux">
+            <a href="#" aria-label="Instagram">In</a>
+            <a href="#" aria-label="LinkedIn">Li</a>
+            <a href="#" aria-label="Twitter/X">X</a>
+            <a href="#" aria-label="Behance">Be</a>
+          </div>
+        </div>
+        <nav class="footer-col" aria-label="Plan du site">
+          <h5>Navigation</h5>
+          <ul role="list">
+            <li><a href="../index.html">Accueil</a></li>
+            <li><a href="about.html">À propos</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="gallery.html">Galerie</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+        <nav class="footer-col" aria-label="Services">
+          <h5>Services</h5>
+          <ul role="list">
+            <li><a href="services.html">Identité de marque</a></li>
+            <li><a href="services.html">Design numérique</a></li>
+            <li><a href="services.html">Stratégie créative</a></li>
+            <li><a href="services.html">Direction artistique</a></li>
+            <li><a href="services.html">Motion design</a></li>
+          </ul>
+        </nav>
+        <div class="footer-col footer-newsletter">
+          <h5>Newsletter</h5>
+          <p style="font-size:0.8rem; color:rgba(255,255,255,0.4); margin-bottom:1rem; line-height:1.6;">Inspirations créatives et actualités du studio, chaque mois.</p>
+          <input type="email" placeholder="votre@email.com" aria-label="Adresse email newsletter">
+          <button class="btn btn-ghost" style="width:100%; justify-content:center;"><span>S'abonner</span></button>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 Forma Studio. Tous droits réservés.</span>
+        <nav class="footer-legal" aria-label="Mentions légales">
+          <a href="#">Mentions légales</a>
+          <a href="#">Politique de confidentialité</a>
+          <a href="#">CGU</a>
+          <a href="#">Cookies</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>
